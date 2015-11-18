@@ -1,0 +1,1226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)https://weka.wikispaces.com/Use+Weka+in+your+Java+code -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="search" href="https://weka.wikispaces.com/space/opensearch" type="application/opensearchdescription+xml" title="Wikispaces Search (weka Wiki)">
+<link rel="alternate" type="application/x-wiki" title="Edit This Page" href="https://weka.wikispaces.com/page/edit/Use+Weka+in+your+Java+code">
+<link rel="alternate" title="weka - All Changes" href="https://weka.wikispaces.com/wiki/xmla?v=rss_2_0" type="application/rss+xml">
+<link rel="alternate" title="weka : Use Weka in your Java code - Discussion" href="https://weka.wikispaces.com/message/xml/Use+Weka+in+your+Java+code?v=rss_2_0" type="application/rss+xml">
+<link rel="alternate" title="weka : Use Weka in your Java code - Edits" href="https://weka.wikispaces.com/page/xml/Use+Weka+in+your+Java+code?v=rss_2_0" type="application/rss+xml">
+<link rel="microsummary" href="https://weka.wikispaces.com/page/microsummary/Use+Weka+in+your+Java+code/edits">
+<link rel="microsummary" href="https://weka.wikispaces.com/page/microsummary/Use+Weka+in+your+Java+code/messages">
+<script type="text/javascript">
+  
+if (typeof ws === 'undefined') ws = {};
+ws.context = {
+  instance: {
+    id: '1',
+    url: 'wikispaces.com',
+    isMain: true,
+    supportsGoogleDocs: false,
+    isTesClassroom: false,
+  },
+  user: {
+    id: '',
+    username: '',
+    status: '',
+    locale: 'en_US',
+    imageUrlPrefix: 'https://ssl.wikicdn.com/i/user_none_',
+    isTeacher: false,
+    canAdministerWiki: false,
+  },
+  wiki: {
+    id: '2171807',
+    name: 'weka',
+    text: 'weka',
+    module: 'B',
+    isClassroom: false,
+    isTesClassroom: false
+    ,defaultSpaceId: 2171807
+    ,isWwwWiki: false
+  },
+  project: {
+    id: '2171807',
+    name: ''
+  },
+  space: {
+    id: '2171807',
+    name: 'weka',
+    isDefaultSpace: true,
+    isDefaultTemplate: false
+  },
+
+  environment_name: 'prod',
+
+  path: {
+    object: 'page',
+    method: 'view',
+    page: 'Use Weka in your Java code',
+    id: ''
+  },
+
+  settings: {
+    main_domain: 'wikispaces.com',
+    session_url: 'https://session.wikispaces.com/1/',
+    asset_url_prefix: 'https://ssl.wikicdn.com',
+    beta_features: false,
+    isMobileSite: false,
+    isUploadCapable: true,
+    can_discuss: false,
+    has_gdocs: false,
+    isDialog: false,
+    pwin: ''
+  },
+  clockSkewMillis: 1428638580968 - ((window.performance && window.performance.timing.responseStart > 0) ? window.performance.timing.responseStart : (new Date()).getTime())
+}
+
+
+// legacy javascript API variables, use the above instead
+var wikispaces_isUserLoggedIn = !!ws.context.user.id;
+var wikispaces_isMain = ws.context.instance.isMain;
+var wikispaces_username = ws.context.user.username;
+var wikispaces_spaceName = ws.context.space.name;
+var wikispaces_projectName = ws.context.project.name;
+var wikispaces_wikiName = ws.context.wiki.name;
+var wikispaces_wikiText = ws.context.wiki.text;
+var wikispaces_isDefaultSpace = ws.context.space.isDefaultSpace;
+var wikispaces_method = ws.context.path.method;
+var wikispaces_object = ws.context.path.object;
+var wikispaces_page = ws.context.path.page;
+var wikispaces_id = ws.context.path.id;
+var wikispaces_domain = ws.context.instance.url;
+var wikispaces_isUserOrganizer = false;
+var wikispaces_main_domain = ws.context.settings.asset_url_prefix;
+var wikispaces_asset_url_prefix = ws.context.settings.asset_url_prefix;
+var wikispaces_beta_features = ws.context.settings.beta_features;
+var wikispaces_isMobileSite = ws.context.settings.isMobileSite;
+var wikispaces_isUploadCapable = ws.context.settings.isUploadCapable;
+var wikispaces_can_discuss = ws.context.settings.can_discuss;
+var wikispaces_has_gdocs = ws.context.settings.has_gdocs;
+
+</script><title>weka - Use Weka in your Java code</title>
+<meta charset="utf-8">
+<link rel="apple-touch-icon" sizes="144x144" href="https://ssl.wikicdn.com/_/z6371z4x/i/logo-144.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://ssl.wikicdn.com/_/j5j77xz3/i/logo-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://ssl.wikicdn.com/_/vq8j5432/i/logo-72.png">
+<link rel="apple-touch-icon" href="https://ssl.wikicdn.com/_/38515190/i/logo-57.png">
+<link rel="shortcut icon" href="https://ssl.wikicdn.com/_/55v9k02z/i/logo-16.png">
+<style type="text/css">
+/* Standard theme styles */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.ws-theme-header-inner,
+.ws-theme-body-inner,
+.ws-theme-footer-inner,
+.ws-theme-content-inner,
+.ws-theme-sidebar-inner {
+  position: relative;
+}
+.ws-theme-header-inner:after,
+.ws-theme-body-inner:after,
+.ws-theme-footer-inner:after,
+.ws-theme-content-inner:after,
+.ws-theme-sidebar-inner:after,
+.ws-theme-menu-inner:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ws-theme-content, .ws-theme-sidebar {
+  overflow-x: auto;
+}
+.ws-theme-footer {
+  text-align: right;
+}
+.ws-theme-footer a, .ws-theme-footer a:hover {
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .ws-theme-container {
+    width: 750px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .ws-theme-content {
+    width: 550px;
+    min-height: 384px;
+    float: right;
+  }
+  .ws-theme-sidebar {
+    width: 200px;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .ws-theme-container {
+    width: 970px;
+  }
+  .ws-theme-content {
+    width: 770px;
+    min-height: 496px;
+  }
+}
+@media (min-width: 1200px) {
+  .ws-theme-container {
+    width: 1170px;
+  }
+  .ws-theme-content {
+    width: 970px;
+    min-height: 600px;
+  }
+}
+/* End standard theme styles */
+</style>
+<style type="text/css">
+/* Theme-specific styles */
+body {
+  background-color: #ECEFED;
+}
+
+.ws-theme-header .WikiSearch .WikiSearchInput,
+.ws-theme-sidebar .WikiSearch .WikiSearchInput,
+.ws-theme-footer .WikiSearch .WikiSearchInput {
+  width: 100%;
+}
+
+.ws-theme-header a,
+.ws-theme-sidebar a,
+.ws-theme-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.ws-theme-header a:hover,
+.ws-theme-sidebar a:hover,
+.ws-theme-footer a:hover {
+  text-decoration: underline;
+}
+.ws-theme-header img,
+.ws-theme-sidebar img,
+.ws-theme-footer img {
+  border: none;
+}
+
+.ws-theme-header,
+.ws-theme-sidebar {
+  display: none;
+}
+
+.ws-theme-sidebar,
+.ws-theme-footer {
+  color: #000000;
+}
+
+.ws-theme-body-inner {
+  padding: 8px 5px;
+}
+
+.ws-theme-content {
+  overflow-x: visible;
+}
+.ws-theme-content-inner {
+  background-color: #FFF;
+  padding: 15px;
+}
+
+.ws-theme-footer {
+  font-size: 12px;
+}
+.ws-theme-footer-inner {
+  padding: 0 15px 15px 15px;
+}
+.ws-theme-footer .WikiLicense img {
+  vertical-align: text-bottom;
+}
+
+@media (min-width: 768px) {
+  .ws-theme-container {
+    width: auto;
+  }
+
+  .ws-theme-header,
+  .ws-theme-sidebar {
+    display: block;
+  }
+
+  .ws-theme-header {
+    color: #FFF;
+    background: #CCCCCC url('https://ssl.wikicdn.com/_/94v39788/i/theme_swoop.png') no-repeat 100% -25px;
+  }
+  .ws-theme-header-inner {
+    padding: 15px 0;
+  }
+
+  .ws-theme-body-inner {
+    padding: 15px;
+  }
+
+  .ws-theme-content {
+    width: auto;
+    float: none;
+    margin-left: 215px;
+  }
+  .ws-theme-content-inner {
+    width: 100%;
+    float: left;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.25);
+  }
+
+  .ws-theme-sidebar .WikiActions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ws-theme-sidebar .WikiActions > li {
+    padding: 2px;
+  }
+  .ws-theme-sidebar .WikiCustomNav ol {
+    padding-left: 16px;
+  }
+  .ws-theme-sidebar .WikiCustomNav ol.includePageList {
+    padding-left: 0;
+  }
+  .ws-theme-sidebar .ws-theme-nav-edit {
+    color: #666;
+    text-align: center;
+  }
+}
+/* End theme-specific styles */
+</style>
+<link rel="stylesheet" href="./weka - Use Weka in your Java code_files/217420326D.gz.css" type="text/css">
+<link rel="stylesheet" href="./weka - Use Weka in your Java code_files/9q897620-internal-bootstrap.css" type="text/css">
+<link rel="stylesheet" href="./weka - Use Weka in your Java code_files/2x6v5106-internal.css" type="text/css">
+<script src="./weka - Use Weka in your Java code_files/70002v41-top.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+
+  var wsGoogleAccount = 'UA-80504-1';
+  _gaq.push(['_setAccount', wsGoogleAccount]);
+  _gaq.push(['_gat._anonymizeIp']);
+  _gaq.push(['_setDomainName', 'wikispaces.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_setCustomVar', 2, 'Authenticated', 'Guest', 2]);
+  _gaq.push(['_trackPageview']);
+</script><style type="text/css"></style></head>
+<body><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#WikiContent" class="hidden sr-only sr-only-focusable">Skip to main content</a><div id="js-fixed-header-holder" class="fixed"><div class="WikispacesContent WikispacesBs3" role="banner">
+      <div id="WikispacesBanner" class="BannerDisplayed"><script type="text/javascript">_gaq.push(["_trackEvent", "Marketing", "Banner", "classroom"]);function dismissMarketingBanner() {  var cookieDomain = ws.context.instance.url;  var hostname = window.location.hostname;  if (hostname.indexOf(cookieDomain, hostname.length - cookieDomain.length) === -1) {    cookieDomain = hostname;  }  ws.common.displayBanner(false);  ws.cookie.set("ws-banner-classroom", 1, {expires: 365 * 86400, domain: cookieDomain});   return false;}</script><i class="fa fa-times fa-fw ws-close" onclick="dismissMarketingBanner();"></i><a href="https://www.wikispaces.com/t/y/classroom-switch/banner/3/">Get your brand new Wikispaces Classroom now</a> and do "back to school" in style.</div>
+    <div class="ws-main-top-nav visible-xs">
+    <div class="navbar navbar-static-top" style="margin-bottom: 0;">
+      <div class="container">
+                <div class="navbar-header">
+          <div class="visible-xs pull-left">
+            <a href="https://weka.wikispaces.com/space/menu" class="WikispacesDialogLink btn navbar-btn">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+          <div class="visible-xs pull-right js-globalnav-popover-container">
+                        <a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2FUse%2BWeka%2Bin%2Byour%2BJava%2Bcode" class="btn navbar-btn ws-mobile-guest-username js-globalnav-popover-trigger">
+              guest
+            </a>
+                        <div class="hidden js-globalnav-popover-content">
+              <div class="WikispacesContent WikispacesBs3">
+                <div class="WikiInternalHeaderNav noHide">
+  <div class="WikiInternalHeaderNavMenu">
+                          
+                  <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/user/join?goto=https%3A%2F%2Fweka.wikispaces.com%2Fspace%2Fjoin" rel="nofollow" class="WikispacesXDomainDialogLink">Join</a></span>
+
+          <span class="divider">|</span>
+        
+        <span class="WikiInternalHeaderNavMenuArea"><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help</a></span>
+
+        <span class="divider">|</span>
+      
+      <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2FUse%2BWeka%2Bin%2Byour%2BJava%2Bcode" rel="nofollow" class="WikispacesXDomainDialogLink">Sign In</a></span>
+      </div>
+</div>              </div>
+            </div>
+          </div>
+          <div class="ws-navbar-middle-xs">
+            <div class="navbar-brand" role="navigation">
+              <a href="https://www.wikispaces.com/" class="ws-logo"></a>
+              <i class="fa fa-angle-right"></i>
+              <a href="https://weka.wikispaces.com/">weka</a>
+                              <i class="fa fa-angle-right"></i> <a href="https://weka.wikispaces.com/home">Home</a>
+              
+            </div>
+          </div>
+                    <form action="https://weka.wikispaces.com/search/view" method="post" class="navbar-form ws-include-xs pull-left ws-navbar-search hidden-xs" role="search"><input type="hidden" name="wikispacesFormToken" value="5077b25bb954e27757e6fa6ef81584df2595d263"><input type="text" class="form-control search-query" name="q" value="" placeholder="Search"> </form>
+                  </div>
+      </div>
+    </div>
+  </div>
+      <div class="hidden-xs"><div class="WikiInternalHeaderNav WikiElement floating">
+  <div class="WikiInternalHeaderNavMenu">
+                                    <span class="WikiInternalHeaderNavMenuArea guestUserName">guest</span><span class="slideMarker divider">|</span>
+        
+                  <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/user/join?goto=https%3A%2F%2Fweka.wikispaces.com%2Fspace%2Fjoin" rel="nofollow" class="WikispacesXDomainDialogLink">Join</a></span>
+
+          <span class="divider">|</span>
+        
+        <span class="WikiInternalHeaderNavMenuArea"><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help</a></span>
+
+        <span class="divider">|</span>
+      
+      <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2FUse%2BWeka%2Bin%2Byour%2BJava%2Bcode" rel="nofollow" class="WikispacesXDomainDialogLink">Sign In</a></span>
+      </div>
+</div></div>
+  </div></div><div id="js-fixed-header-offset">
+<header class="ws-theme-header" role="banner">
+  <div class="ws-theme-container">
+    <div class="ws-theme-header-inner">
+      <a href="https://weka.wikispaces.com/" class="WikiLogo WikiElement"><img src="./weka - Use Weka in your Java code_files/logo.gif" alt="weka"></a>    </div>
+  </div>
+</header>
+
+<div class="ws-theme-body">
+  <div class="ws-theme-container">
+    <div class="ws-theme-body-inner">
+      <nav class="ws-theme-sidebar" role="navigation">
+        <div class="ws-theme-sidebar-inner">
+          <div class="ws-theme-menu">
+            <div class="ws-theme-menu-inner">
+              <ul class="WikiActions WikiElement WikiControls">
+    <li id="WikiActionHome"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/"><i class="fa fa-home fa-fw"></i></a><a href="https://weka.wikispaces.com/">Wiki Home</a></div></li>
+    <li id="WikiActionChanges"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/wiki/changes"><i class="fa fa-clock-o fa-fw"></i></a><a href="https://weka.wikispaces.com/wiki/changes">Recent Changes</a></div></li>
+    <li id="WikiActionPagesAndFiles"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/space/content"><i class="fa fa-file-text-o fa-fw"></i></a><a href="https://weka.wikispaces.com/space/content">Pages and Files</a></div></li>
+    <li id="WikiActionMembers"><div class="js-member-link"><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/wiki/members"><i class="fa fa-user fa-fw"></i></a><a href="https://weka.wikispaces.com/wiki/members">Members</a></div></li>
+</ul>
+              <form action="https://weka.wikispaces.com/search/view" method="post" class="WikiSearch WikiElement" role="search"><input type="text" class="form-control WikiSearchInput" name="q" value="" placeholder="Search"> </form>              <div class="WikiCustomNav WikiElement wiki"><a href="http://weka.wikispaces.com/">Home</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/space/pagelist" rel="nofollow">All pages</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/tag/list" rel="nofollow">All tags</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/space/filelist" rel="nofollow">All files</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Packages">Packages</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/FAQ">FAQ</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Not+So+FAQ">Not So FAQ</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Troubleshooting">Troubleshooting</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/WEKA+Mailing+List">Mailing List</a></div>              <div class="ws-theme-nav-edit">
+                              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="ws-theme-content" role="main">
+        <div class="ws-theme-content-inner">
+          <div class="contentBox"><div class="innerContentBox" id="WikiContent">
+
+<script type="text/template" id="comment-footer-template">
+
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</script>
+
+<script type="text/template" id="comment-content-template">
+<div class="ws-box commentView">
+  <div class="comment-close">
+    <button type="button" class="closeme close" aria-hidden="true"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="commentHeader">
+    <p class="ws-stream-meta command-context">
+      <a class="userLink userLinkPicture" href="<%= userCreated.url %>"><img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16"></a>
+      <a href="<%= userCreated.url %>"><%= userCreated.username %></a>
+      <% if (smartDate == '__live__') { %>
+      <abbr class="timeago" title="<%= (new Date(parseInt(dateCreated, 10) * 1000)).toISOString() %>">
+        <%= dateCreated %>
+      </abbr>
+      <% } else { %>
+        <%- smartDate %>
+      <% } %>
+      <% if (ws.context.user.canAdministerWiki && ws.comments.Manager.readOnly) { %>
+        <i class="fa fa-trash-o contextual-command delete ws-tip" title="Delete Comment"></i>
+      <% } %>
+    </p>
+  </div>
+
+  <div class="commentBody">
+    <div class="commentContent">
+      <%= description %>
+    </div>
+
+      <% for(i = 0; i < replyPages.length; i++) { %>
+        <% for(var j = 0; j < replyPages[i].digests.length; j++) { %>
+      <div class="commentReply" data-id="<%= replyPages[i].digests[j].id %>">
+        <p class="ws-stream-meta command-context">
+          <a class="userLink userLinkPicture" href="<%= replyPages[i].digests[j].userCreated.url %>"><img class="userPicture" src="<%= replyPages[i].digests[j].userCreated.imageUrl %>" width="16" height="16"></a>
+          <a href="<%= replyPages[i].digests[j].userCreated.url %>"><%= replyPages[i].digests[j].userCreated.username %></a>
+          <% if (smartDate == '__live__') { %>
+          <abbr class="timeago" title="<%= (new Date(parseInt(replyPages[i].digests[j].dateCreated, 10) * 1000)).toISOString() %>">
+            <%= new Date(parseInt(replyPages[i].digests[j].dateCreated, 10) * 1000).toLocaleString() %>
+          </abbr>
+          <% } else { %>
+            <%- smartDate %>
+          <% } %>
+          <% if (ws.context.user.canAdministerWiki) { %>
+          <i class="fa fa-trash-o contextual-command delete-reply ws-tip" title="Delete Reply"></i>
+          <% } %>
+          </p>
+        <div class="commentContent"><%= replyPages[i].digests[j].body %></div>
+      </div>
+        <% } %>
+      <% } %>
+
+      <form class="reply commentReply">
+        <div class="form-group">
+          <textarea name="reply" placeholder="Reply" class="form-control" /></textarea>
+        </div>
+        <div class="btn-toolbar">
+          <button type="submit" class="btn btn-primary btn-sm" name="go" value="1">Post</button>
+
+          <% if (ws.context.user.id) { %>
+            <% if (monitored) { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-monitor ws-tip active" title="You are monitoring replies."><i class="fa fa-eye"></i></button>
+            <% } else { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-monitor ws-tip" title="You are not monitoring replies."><i class="fa fa-eye"></i></button>
+            <% } %>
+          <% } %>
+          <% if (ws.context.user.canAdministerWiki) { %>
+            <% if (locked) { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-lock ws-tip active" title="Replies are not allowed."><i class="fa fa-lock"></i></button>
+            <% } else { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-lock ws-tip" title="Replies are allowed."><i class="fa fa-lock"></i></button>
+            <% } %>
+          <% } %>
+
+          <i class="fa fa-spinner fa-spin spinner pull-right hidden"></i>
+        </div>
+      </form>
+   </div>
+
+   
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</div>
+</script>
+
+<script type="text/template" id="comment-composer-template">
+<div class="ws-box commentView">
+  <div class="commentComposer">
+    <div class="comment-close">
+      &nbsp;<button type="button" class="close closeme" aria-hidden="true"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="commentHeader">
+      <p class="ws-stream-meta command-context">
+        <img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16">
+        <a href="#" onclick="return false;"><%= userCreated.username %></a>
+      </p>
+    </div>
+    <div class="commentBody">
+      <textarea name="comment" class="compose form-control" placeholder="Comment"/></textarea><br/>
+      <div class="btn-toolbar">
+        <button type="button" class="btn btn-default btn-sm monitored active pull-right" style="margin-left: 6px" onclick="jQuery(this).toggleClass('active')"><i class="fa fa-eye"></i></button>
+        <button type="button" class="btn btn-default btn-sm locked btn-toggle pull-right" onclick="jQuery(this).toggleClass('active')"><i class="fa fa-lock"></i></button>
+        <button type="button" class="btn btn-primary btn-sm closeme">Save</button>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</div>
+</script>
+
+<script type="text/template" id="comment-proxy-template">
+<div class="comment-proxy">
+  <span class="commentUser">
+  <% if (userCreated) { %>
+    <img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16">
+  <% } else { %>
+    <img class="userPicture" src="<%= ws.context.user.imageUrlPrefix %>sm.jpg" width="16" height="16">
+  <% } %>
+  </span>
+  <span class="commentReplies"><%= 1 + _(replyPages).reduce(function(memo, page){ return memo + page.digests.length; }, 0) %></span>
+</div>
+</script>
+
+<div class="ws-menu-bar WikiControls WikispacesContent WikispacesBs3">
+  
+    <h1 class="pageTitle"><a href="./weka - Use Weka in your Java code_files/weka - Use Weka in your Java code.html">Use Weka in your Java code</a></h1>
+      <div class="btn-group pull-right">
+          <span class="btn btn-default disabled tipme" title="you do not have permission to edit this page"><i class="fa fa-pencil fa-fw"></i> Edit</span>          <a class="btn btn-default tipme" title="no discussion posts" href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#discussion"><i class="fa fa-comments fa-fw"></i> 0</a>          <a class="btn btn-default tipme" title="view 11 revisions" href="https://weka.wikispaces.com/page/history/Use+Weka+in+your+Java+code"><i class="fa fa-clock-o fa-fw"></i> 11</a>          <a class="btn btn-default ws-btn-more dropdown-toggle tipme" title="more options" href="https://weka.wikispaces.com/page/menu/Use+Weka+in+your+Java+code"><i class="icon-height-only fa-fw"></i>…</a>        <ul class="ws-more-menu dropdown-menu dropdown-menu-right">
+              <li class=" dropdown"><a class=" ws-tag-dropdown-toggle" href="https://weka.wikispaces.com/page/tags/Use+Weka+in+your+Java+code"><span class="pull-right">1</span> <i class="fa fa-tag fa-fw"></i> Tags</a>
+          <div class="dropdown-menu dropdown-menu-right ws-tag-dropdown-menu">
+          
+
+
+
+<form action="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#" name="WikiTagForm" class="WikiTagForm"><input type="hidden" name="wikispacesFormToken" value="cce9e29274e275e084522d1b2846f3ecdc98262c"><input type="hidden" name="wikispacesFormToken" value="cce9e29274e275e084522d1b2846f3ecdc98262c">
+  <div class="WikiTagList">
+    <i class="fa fa-tag ws-action"></i>
+        <ul class="list-unstyled">
+                          <li><a href="https://weka.wikispaces.com/space/content?tag=source%20code">source code</a></li>
+              </ul>
+      </div>
+  </form>      </div>
+    </li>
+              <li class="divider"></li>
+            <li class=""><a class=" WikispacesDialogLink" href="https://weka.wikispaces.com/wiki/addmonitor?monitorLink=page%3AUse%20Weka%20in%20your%20Java%20code"><i class="fa fa-eye fa-fw"></i> Notify</a>
+    </li>
+        <li class=""><a class=" WikispacesDialogLink" href="https://weka.wikispaces.com/page/rss/Use+Weka+in+your+Java+code"><i class="fa fa-rss fa-fw"></i> RSS</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/page/links/Use+Weka+in+your+Java+code"><i class="fa fa-link fa-fw"></i> Backlinks</a>
+    </li>
+              <li class="divider"></li>
+            <li class=""><a class="" href="https://weka.wikispaces.com/page/code/Use+Weka+in+your+Java+code"><i class="fa fa-code fa-fw"></i> Source</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code?f=print"><i class="fa fa-print fa-fw"></i> Print</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/page/pdf/Use+Weka+in+your+Java+code"><i class="fa fa-cloud-download fa-fw"></i> Export (PDF)</a>
+    </li>
+      </ul>  </div>
+  </div>
+
+
+
+
+  <textarea class="form-control" id="autosaveContent" style="display:none;" rows="1" cols="1"></textarea>
+  <div id="autosavePrompt" style="display:none;"></div>
+
+<div class="commentContainer">
+  <div class="commentSubject">
+  <div class="wiki wikiPage" id="content_view">
+  <!-- ws:start:WikiTextTocRule:105:&lt;img id=&quot;wikitext@@toc@@normal&quot; class=&quot;WikiMedia WikiMediaToc&quot; title=&quot;Table of Contents&quot; src=&quot;/site/embedthumbnail/toc/normal?w=225&amp;h=100&quot;/&gt; --><div id="toc"><h1 class="nopad">Table of Contents</h1><!-- ws:end:WikiTextTocRule:105 --><!-- ws:start:WikiTextTocRule:106: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Instances">Instances</a></div>
+<!-- ws:end:WikiTextTocRule:106 --><!-- ws:start:WikiTextTocRule:107: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Instances-ARFF File">ARFF File</a></div>
+<!-- ws:end:WikiTextTocRule:107 --><!-- ws:start:WikiTextTocRule:108: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Instances-Pre 3.5.5 and 3.4.x">Pre 3.5.5 and 3.4.x</a></div>
+<!-- ws:end:WikiTextTocRule:108 --><!-- ws:start:WikiTextTocRule:109: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Instances-3.5.5 and newer">3.5.5 and newer</a></div>
+<!-- ws:end:WikiTextTocRule:109 --><!-- ws:start:WikiTextTocRule:110: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Instances-Database">Database</a></div>
+<!-- ws:end:WikiTextTocRule:110 --><!-- ws:start:WikiTextTocRule:111: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Option handling">Option handling</a></div>
+<!-- ws:end:WikiTextTocRule:111 --><!-- ws:start:WikiTextTocRule:112: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Filter">Filter</a></div>
+<!-- ws:end:WikiTextTocRule:112 --><!-- ws:start:WikiTextTocRule:113: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Filter-Filtering on-the-fly">Filtering on-the-fly</a></div>
+<!-- ws:end:WikiTextTocRule:113 --><!-- ws:start:WikiTextTocRule:114: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Filter-Batch filtering">Batch filtering</a></div>
+<!-- ws:end:WikiTextTocRule:114 --><!-- ws:start:WikiTextTocRule:115: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Filter-Calling conventions">Calling conventions</a></div>
+<!-- ws:end:WikiTextTocRule:115 --><!-- ws:start:WikiTextTocRule:116: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification">Classification</a></div>
+<!-- ws:end:WikiTextTocRule:116 --><!-- ws:start:WikiTextTocRule:117: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Building a Classifier">Building a Classifier</a></div>
+<!-- ws:end:WikiTextTocRule:117 --><!-- ws:start:WikiTextTocRule:118: --><div style="margin-left: 3em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Building a Classifier-Batch">Batch</a></div>
+<!-- ws:end:WikiTextTocRule:118 --><!-- ws:start:WikiTextTocRule:119: --><div style="margin-left: 3em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Building a Classifier-Incremental">Incremental</a></div>
+<!-- ws:end:WikiTextTocRule:119 --><!-- ws:start:WikiTextTocRule:120: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Evaluating">Evaluating</a></div>
+<!-- ws:end:WikiTextTocRule:120 --><!-- ws:start:WikiTextTocRule:121: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Cross-validation">Cross-validation</a></div>
+<!-- ws:end:WikiTextTocRule:121 --><!-- ws:start:WikiTextTocRule:122: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Train/test set">Train/test set</a></div>
+<!-- ws:end:WikiTextTocRule:122 --><!-- ws:start:WikiTextTocRule:123: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Statistics">Statistics</a></div>
+<!-- ws:end:WikiTextTocRule:123 --><!-- ws:start:WikiTextTocRule:124: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-ROC curves/AUC">ROC curves/AUC</a></div>
+<!-- ws:end:WikiTextTocRule:124 --><!-- ws:start:WikiTextTocRule:125: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Classification-Classifying instances">Classifying instances</a></div>
+<!-- ws:end:WikiTextTocRule:125 --><!-- ws:start:WikiTextTocRule:126: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering">Clustering</a></div>
+<!-- ws:end:WikiTextTocRule:126 --><!-- ws:start:WikiTextTocRule:127: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Building a Clusterer">Building a Clusterer</a></div>
+<!-- ws:end:WikiTextTocRule:127 --><!-- ws:start:WikiTextTocRule:128: --><div style="margin-left: 3em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Building a Clusterer-Batch">Batch</a></div>
+<!-- ws:end:WikiTextTocRule:128 --><!-- ws:start:WikiTextTocRule:129: --><div style="margin-left: 3em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Building a Clusterer-Incremental">Incremental</a></div>
+<!-- ws:end:WikiTextTocRule:129 --><!-- ws:start:WikiTextTocRule:130: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Evaluating">Evaluating</a></div>
+<!-- ws:end:WikiTextTocRule:130 --><!-- ws:start:WikiTextTocRule:131: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Clustering instances">Clustering instances</a></div>
+<!-- ws:end:WikiTextTocRule:131 --><!-- ws:start:WikiTextTocRule:132: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Clustering-Classes to clusters evaluation">Classes to clusters evaluation</a></div>
+<!-- ws:end:WikiTextTocRule:132 --><!-- ws:start:WikiTextTocRule:133: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Attribute selection">Attribute selection</a></div>
+<!-- ws:end:WikiTextTocRule:133 --><!-- ws:start:WikiTextTocRule:134: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Attribute selection-Meta-Classifier">Meta-Classifier</a></div>
+<!-- ws:end:WikiTextTocRule:134 --><!-- ws:start:WikiTextTocRule:135: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Attribute selection-Filter">Filter</a></div>
+<!-- ws:end:WikiTextTocRule:135 --><!-- ws:start:WikiTextTocRule:136: --><div style="margin-left: 2em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Attribute selection-Low-level">Low-level</a></div>
+<!-- ws:end:WikiTextTocRule:136 --><!-- ws:start:WikiTextTocRule:137: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Note on randomization">Note on randomization</a></div>
+<!-- ws:end:WikiTextTocRule:137 --><!-- ws:start:WikiTextTocRule:138: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#See also">See also</a></div>
+<!-- ws:end:WikiTextTocRule:138 --><!-- ws:start:WikiTextTocRule:139: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Examples">Examples</a></div>
+<!-- ws:end:WikiTextTocRule:139 --><!-- ws:start:WikiTextTocRule:140: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Links">Links</a></div>
+<!-- ws:end:WikiTextTocRule:140 --><!-- ws:start:WikiTextTocRule:141: --></div>
+<!-- ws:end:WikiTextTocRule:141 -->The most common components you might want to use are<br>
+<ul><li><em>Instances</em> - your data</li><li><em>Filter</em> - for preprocessing the data</li><li><em>Classifier/Clusterer</em> - built on the processed data</li><li><em>Evaluating</em> - how good is the classifier/clusterer?</li><li><em>Attribute selection</em> - removing irrelevant attributes from your data</li></ul><br>
+The following sections explain how to use them in your own code. A link to an <strong>example class</strong> can be found at the end of this page, under the <a class="wiki_link" href="https://weka.wikispaces.com/Use+Weka+in+your+Java+code#Links">Links</a> section. The classifiers and filters always list their options in the Javadoc API (<a class="wiki_link_ext" href="http://weka.sourceforge.net/doc/" rel="nofollow">book</a>, <a class="wiki_link_ext" href="http://weka.sourceforge.net/doc.stable/" rel="nofollow">stable</a>, <a class="wiki_link_ext" href="http://weka.sourceforge.net/doc.dev/" rel="nofollow">developer</a> version) specification.<br>
+<br>
+You might also want to check out the <a class="wiki_link" href="https://weka.wikispaces.com/Weka+Examples">Weka Examples</a> collection, containing examples for the different versions of Weka. Another, more comprehensive, source of information is the chapter <em>Using the API</em> of the Weka manual for the stable-3.6 and developer version (<a class="wiki_link" href="https://weka.wikispaces.com/snapshots">snapshots</a> and releases later than 09/08/2009).<br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:35:&lt;h1&gt; --><h1 id="toc0"><a name="Instances"></a><!-- ws:end:WikiTextHeadingRule:35 -->Instances</h1>
+ <!-- ws:start:WikiTextHeadingRule:37:&lt;h2&gt; --><h2 id="toc1"><a name="Instances-ARFF File"></a><!-- ws:end:WikiTextHeadingRule:37 -->ARFF File</h2>
+ <!-- ws:start:WikiTextHeadingRule:39:&lt;h2&gt; --><h2 id="toc2"><a name="Instances-Pre 3.5.5 and 3.4.x"></a><!-- ws:end:WikiTextHeadingRule:39 -->Pre 3.5.5 and 3.4.x</h2>
+ Reading from an <a class="wiki_link" href="https://weka.wikispaces.com/ARFF">ARFF</a> file is straightforward:<br>
+<!-- ws:start:WikiTextCodeRule:0:
+&lt;pre class=&quot;java&quot;&gt; import weka.core.Instances;&lt;br/&gt; import java.io.BufferedReader;&lt;br/&gt; import java.io.FileReader;&lt;br/&gt; ...&lt;br/&gt; BufferedReader reader = new BufferedReader(&lt;br/&gt;                              new FileReader(&amp;quot;/some/where/data.arff&amp;quot;));&lt;br/&gt; Instances data = new Instances(reader);&lt;br/&gt; reader.close();&lt;br/&gt; // setting class attribute&lt;br/&gt; data.setClassIndex(data.numAttributes() - 1);&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.core.Instances</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">java.io.BufferedReader</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">java.io.FileReader</span><span class="sy0">;</span>
+ ...
+ <span class="kw3">BufferedReader</span> reader <span class="sy0">=</span> <span class="kw1">new</span> <span class="kw3">BufferedReader</span><span class="br0">(</span>
+                              <span class="kw1">new</span> <span class="kw3">FileReader</span><span class="br0">(</span><span class="st0">"/some/where/data.arff"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ Instances data <span class="sy0">=</span> <span class="kw1">new</span> Instances<span class="br0">(</span>reader<span class="br0">)</span><span class="sy0">;</span>
+ reader.<span class="me1">close</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="co1">// setting class attribute</span>
+ data.<span class="me1">setClassIndex</span><span class="br0">(</span>data.<span class="me1">numAttributes</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:0 --><br>
+The class index indicates the target attribute used for classification. By default, in an ARFF file, it is the last attribute, which explains why it's set to numAttributes-1.<br>
+You <strong>must</strong> set it if your instances are used as a parameter of a weka function (e.g.,: <tt>weka.classifiers.Classifier.buildClassifier(data)</tt>)<br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:41:&lt;h2&gt; --><h2 id="toc3"><a name="Instances-3.5.5 and newer"></a><!-- ws:end:WikiTextHeadingRule:41 -->3.5.5 and newer</h2>
+ The <tt>DataSource</tt> class is not limited to ARFF files. It can also read CSV files and other formats (basically all file formats that Weka can import via its converters).<br>
+<!-- ws:start:WikiTextCodeRule:1:
+&lt;pre class=&quot;java&quot;&gt; import weka.core.converters.ConverterUtils.DataSource;&lt;br/&gt; ...&lt;br/&gt; DataSource source = new DataSource(&amp;quot;/some/where/data.arff&amp;quot;);&lt;br/&gt; Instances data = source.getDataSet();&lt;br/&gt; // setting class attribute if the data format does not provide this information&lt;br/&gt; // For example, the XRFF format saves the class attribute information as well&lt;br/&gt; if (data.classIndex() == -1)&lt;br/&gt;   data.setClassIndex(data.numAttributes() - 1);&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.core.converters.ConverterUtils.DataSource</span><span class="sy0">;</span>
+ ...
+ <span class="me1">DataSource</span> source <span class="sy0">=</span> <span class="kw1">new</span> DataSource<span class="br0">(</span><span class="st0">"/some/where/data.arff"</span><span class="br0">)</span><span class="sy0">;</span>
+ Instances data <span class="sy0">=</span> source.<span class="me1">getDataSet</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="co1">// setting class attribute if the data format does not provide this information</span>
+ <span class="co1">// For example, the XRFF format saves the class attribute information as well</span>
+ <span class="kw1">if</span> <span class="br0">(</span>data.<span class="me1">classIndex</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">==</span> <span class="sy0">-</span><span class="nu0">1</span><span class="br0">)</span>
+   data.<span class="me1">setClassIndex</span><span class="br0">(</span>data.<span class="me1">numAttributes</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:1 --><br>
+<!-- ws:start:WikiTextHeadingRule:43:&lt;h2&gt; --><h2 id="toc4"><a name="Instances-Database"></a><!-- ws:end:WikiTextHeadingRule:43 -->Database</h2>
+ Reading from <a class="wiki_link" href="https://weka.wikispaces.com/Databases">Databases</a> is slightly more complicated, but still very easy. First, you'll have to modify your <a class="wiki_link" href="https://weka.wikispaces.com/Databases#Configuration%20files">DatabaseUtils.props</a> file to reflect your database connection. Suppose you want to connect to a <a class="wiki_link_ext" href="http://wwww.mysql.com/" rel="nofollow">MySQL</a> server that is running on the local machine on the default port <tt>3306</tt>. The MySQL JDBC driver is called <a class="wiki_link_ext" href="http://dev.mysql.com/downloads/connector/j/" rel="nofollow">Connector/J</a>. (The driver class is <tt>org.gjt.mm.mysql.Driver</tt>.) The database where your target data resides is called <tt>some_database</tt>. Since you're only reading, you can use the default user <tt>nobody</tt> without a password. Your props file must contain the following lines:<br>
+<!-- ws:start:WikiTextCodeRule:2:
+&lt;pre class=&quot;ini&quot;&gt; jdbcDriver=org.gjt.mm.mysql.Driver&lt;br/&gt; jdbcURL=jdbc:mysql://localhost:3306/some_database&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.ini  {font-family:monospace;}
+.ini .imp {font-weight: bold; color: red;}
+.ini .co0 {color: #666666; font-style: italic;}
+.ini .sy0 {color: #000066; font-weight:bold;}
+.ini .st0 {color: #933;}
+.ini .re0 {color: #000066; font-weight:bold;}
+.ini .re1 {color: #000099;}
+.ini .re2 {color: #660066;}
+.ini span.xtra { display:block; }
+
+-->
+</style><pre class="ini"> <span class="re1">jdbcDriver</span><span class="sy0">=</span><span class="re2">org.gjt.mm.mysql.Driver</span>
+ <span class="re1">jdbcURL</span><span class="sy0">=</span><span class="re2">jdbc:mysql://localhost:3306/some_database</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:2 -->Secondly, your Java code needs to look like this to load the data from the database:<br>
+<!-- ws:start:WikiTextCodeRule:3:
+&lt;pre class=&quot;java&quot;&gt; import weka.core.Instances;&lt;br/&gt; import weka.experiment.InstanceQuery;&lt;br/&gt; ...&lt;br/&gt; InstanceQuery query = new InstanceQuery();&lt;br/&gt; query.setUsername(&amp;quot;nobody&amp;quot;);&lt;br/&gt; query.setPassword(&amp;quot;&amp;quot;);&lt;br/&gt; query.setQuery(&amp;quot;select * from whatsoever&amp;quot;);&lt;br/&gt; // You can declare that your data set is sparse&lt;br/&gt; // query.setSparseData(true);&lt;br/&gt; Instances data = query.retrieveInstances();&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.core.Instances</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">weka.experiment.InstanceQuery</span><span class="sy0">;</span>
+ ...
+ <span class="me1">InstanceQuery</span> query <span class="sy0">=</span> <span class="kw1">new</span> InstanceQuery<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ query.<span class="me1">setUsername</span><span class="br0">(</span><span class="st0">"nobody"</span><span class="br0">)</span><span class="sy0">;</span>
+ query.<span class="me1">setPassword</span><span class="br0">(</span><span class="st0">""</span><span class="br0">)</span><span class="sy0">;</span>
+ query.<span class="me1">setQuery</span><span class="br0">(</span><span class="st0">"select * from whatsoever"</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="co1">// You can declare that your data set is sparse</span>
+ <span class="co1">// query.setSparseData(true);</span>
+ Instances data <span class="sy0">=</span> query.<span class="me1">retrieveInstances</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:3 --><br>
+<strong>Notes:</strong><br>
+<ul><li>Don't forget to add the JDBC driver to your <tt>CLASSPATH</tt>.</li><li>For MS Access, you must use the JDBC-ODBC-bridge that is part of a JDK. The <a class="wiki_link" href="https://weka.wikispaces.com/Windows+databases">Windows databases</a> article explains how to do this.</li><li>InstanceQuery automatically converts VARCHAR database columns to NOMINAL attributes, and long TEXT database columns to STRING attributes. So if you use InstanceQuery to do text mining against text that appears in a VARCHAR column, Weka will regard such text as nominal values. Thus it will fail to tokenize and mine that text. Use the <tt>NominalToString</tt> or <tt>StringToNominal</tt> filter (package <tt>weka.filters.unsupervised.attribute</tt>) to convert the attributes into the correct type.</li></ul><br>
+<!-- ws:start:WikiTextHeadingRule:45:&lt;h1&gt; --><h1 id="toc5"><a name="Option handling"></a><!-- ws:end:WikiTextHeadingRule:45 -->Option handling</h1>
+ Weka schemes that implement the <tt>weka.core.OptionHandler</tt> interface, such as classifiers, clusterers, and filters, offer the following methods for setting and retrieving options:<br>
+<ul><li><tt>void setOptions(String[] options)</tt></li><li><tt>String[] getOptions()</tt></li></ul>There are several ways of setting the options:<br>
+<ul><li>Manually creating a String array:</li></ul><!-- ws:start:WikiTextCodeRule:4:
+&lt;pre class=&quot;java&quot;&gt; String[] options = new String[2];&lt;br/&gt; options[0] = &amp;quot;-R&amp;quot;;&lt;br/&gt; options[1] = &amp;quot;1&amp;quot;;&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw3">String</span><span class="br0">[</span><span class="br0">]</span> options <span class="sy0">=</span> <span class="kw1">new</span> <span class="kw3">String</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy0">;</span>
+ options<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st0">"-R"</span><span class="sy0">;</span>
+ options<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st0">"1"</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:4 --><ul><li>Using a single command-line string and using the <tt>splitOptions</tt> method of the <tt>weka.core.Utils</tt> class to turn it into an array:</li></ul><!-- ws:start:WikiTextCodeRule:5:
+&lt;pre class=&quot;java&quot;&gt; String[] options = weka.core.Utils.splitOptions(&amp;quot;-R 1&amp;quot;);&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw3">String</span><span class="br0">[</span><span class="br0">]</span> options <span class="sy0">=</span> weka.<span class="me1">core</span>.<span class="me1">Utils</span>.<span class="me1">splitOptions</span><span class="br0">(</span><span class="st0">"-R 1"</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:5 --><ul><li>Using the <!-- ws:start:WikiTextFileRule:328:&lt;img src=&quot;https://www.wikispaces.com/site/embedthumbnail/file/OptionsToCode.java?h=52&amp;w=320&quot; class=&quot;WikiFile&quot; id=&quot;wikitext@@file@@OptionsToCode.java&quot; title=&quot;File: OptionsToCode.java&quot; width=&quot;320&quot; height=&quot;52&quot; /&gt; --><div class="objectEmbed"><a href="https://weka.wikispaces.com/file/view/OptionsToCode.java/82917163/OptionsToCode.java" onclick="ws.common.trackFileLink(&#39;/file/view/OptionsToCode.java/82917163/OptionsToCode.java&#39;);"><img src="./weka - Use Weka in your Java code_files/empty.png" height="32" width="32" alt="OptionsToCode.java"></a><div><a href="https://weka.wikispaces.com/file/view/OptionsToCode.java/82917163/OptionsToCode.java" onclick="ws.common.trackFileLink(&#39;/file/view/OptionsToCode.java/82917163/OptionsToCode.java&#39;);" class="filename" title="OptionsToCode.java">OptionsToCode.java</a><br><ul><li><a href="https://weka.wikispaces.com/file/detail/OptionsToCode.java">Details</a></li><li><a href="https://weka.wikispaces.com/file/view/OptionsToCode.java/82917163/OptionsToCode.java">Download</a></li><li style="color: #666">2 KB</li></ul></div></div><!-- ws:end:WikiTextFileRule:328 --> class to automatically turn a command line into code. Especially handy if the command line contains nested classes that have their own options, such as kernels for SMO:</li></ul><!-- ws:start:WikiTextCodeRule:6:
+&lt;pre class=&quot;java&quot;&gt; java OptionsToCode weka.classifiers.functions.SMO&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> java OptionsToCode weka.<span class="me1">classifiers</span>.<span class="me1">functions</span>.<span class="me1">SMO</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:6 --><ul class="quotelist"><li>will generate output like this:</li></ul><!-- ws:start:WikiTextCodeRule:7:
+&lt;pre class=&quot;java&quot;&gt; // create new instance of scheme&lt;br/&gt; weka.classifiers.functions.SMO scheme = new weka.classifiers.functions.SMO();&lt;br/&gt; // set options&lt;br/&gt; scheme.setOptions(weka.core.Utils.splitOptions(&amp;quot;-C 1.0 -L 0.0010 -P 1.0E-12 -N 0 -V -1 -W 1 -K \&amp;quot;weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0\&amp;quot;&amp;quot;));&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="co1">// create new instance of scheme</span>
+ weka.<span class="me1">classifiers</span>.<span class="me1">functions</span>.<span class="me1">SMO</span> scheme <span class="sy0">=</span> <span class="kw1">new</span> weka.<span class="me1">classifiers</span>.<span class="me1">functions</span>.<span class="me1">SMO</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="co1">// set options</span>
+ scheme.<span class="me1">setOptions</span><span class="br0">(</span>weka.<span class="me1">core</span>.<span class="me1">Utils</span>.<span class="me1">splitOptions</span><span class="br0">(</span><span class="st0">"-C 1.0 -L 0.0010 -P 1.0E-12 -N 0 -V -1 -W 1 -K <span class="es0">\"</span>weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0<span class="es0">\"</span>"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:7 -->Also, the <!-- ws:start:WikiTextFileRule:329:&lt;img src=&quot;https://www.wikispaces.com/site/embedthumbnail/file/OptionTree.java?h=52&amp;w=320&quot; class=&quot;WikiFile&quot; id=&quot;wikitext@@file@@OptionTree.java&quot; title=&quot;File: OptionTree.java&quot; width=&quot;320&quot; height=&quot;52&quot; /&gt; --><div class="objectEmbed"><a href="https://weka.wikispaces.com/file/view/OptionTree.java/82917165/OptionTree.java" onclick="ws.common.trackFileLink(&#39;/file/view/OptionTree.java/82917165/OptionTree.java&#39;);"><img src="./weka - Use Weka in your Java code_files/x-c.png" height="32" width="32" alt="OptionTree.java"></a><div><a href="https://weka.wikispaces.com/file/view/OptionTree.java/82917165/OptionTree.java" onclick="ws.common.trackFileLink(&#39;/file/view/OptionTree.java/82917165/OptionTree.java&#39;);" class="filename" title="OptionTree.java">OptionTree.java</a><br><ul><li><a href="https://weka.wikispaces.com/file/detail/OptionTree.java">Details</a></li><li><a href="https://weka.wikispaces.com/file/view/OptionTree.java/82917165/OptionTree.java">Download</a></li><li style="color: #666">8 KB</li></ul></div></div><!-- ws:end:WikiTextFileRule:329 --> tool allows you to view a nested options string, e.g., used at the command line, as a tree. This can help you spot nesting errors.<br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:47:&lt;h1&gt; --><h1 id="toc6"><a name="Filter"></a><!-- ws:end:WikiTextHeadingRule:47 -->Filter</h1>
+ A filter has two different properties:<br>
+<ul><li><em>supervised</em> or <em>unsupervised</em><br>
+either takes the class attribute into account or not</li><li><em>attribute</em>- or <em>instance</em>-based<br>
+e.g., removing a certain attribute or removing instances that meet a certain condition</li></ul><br>
+Most filters implement the <tt>OptionHandler</tt> interface, which means you can set the options via a String array, rather than setting them each manually via <tt>set</tt>-methods.<br>
+For example, if you want to remove the <em>first</em> attribute of a dataset, you need this filter<br>
+<!-- ws:start:WikiTextCodeRule:8:
+&lt;pre class=&quot;java&quot;&gt; weka.filters.unsupervised.attribute.Remove&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> weka.<span class="me1">filters</span>.<span class="me1">unsupervised</span>.<span class="me1">attribute</span>.<span class="me1">Remove</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:8 -->with this option<br>
+<!-- ws:start:WikiTextCodeRule:9:
+&lt;pre class=&quot;java&quot;&gt; -R 1&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="sy0">-</span>R <span class="nu0">1</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:9 -->If you have an <tt>Instances</tt> object, called <tt>data</tt>, you can create and apply the filter like this:<br>
+<!-- ws:start:WikiTextCodeRule:10:
+&lt;pre class=&quot;java&quot;&gt; import weka.core.Instances;&lt;br/&gt; import weka.filters.Filter;&lt;br/&gt; import weka.filters.unsupervised.attribute.Remove;&lt;br/&gt; ...&lt;br/&gt; String[] options = new String[2];&lt;br/&gt; options[0] = &amp;quot;-R&amp;quot;;                                    // &amp;quot;range&amp;quot;&lt;br/&gt; options[1] = &amp;quot;1&amp;quot;;                                     // first attribute&lt;br/&gt; Remove remove = new Remove();                         // new instance of filter&lt;br/&gt; remove.setOptions(options);                           // set options&lt;br/&gt; remove.setInputFormat(data);                          // inform filter about dataset **AFTER** setting options&lt;br/&gt; Instances newData = Filter.useFilter(data, remove);   // apply filter&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.core.Instances</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">weka.filters.Filter</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">weka.filters.unsupervised.attribute.Remove</span><span class="sy0">;</span>
+ ...
+ <span class="kw3">String</span><span class="br0">[</span><span class="br0">]</span> options <span class="sy0">=</span> <span class="kw1">new</span> <span class="kw3">String</span><span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="sy0">;</span>
+ options<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st0">"-R"</span><span class="sy0">;</span>                                    <span class="co1">// "range"</span>
+ options<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st0">"1"</span><span class="sy0">;</span>                                     <span class="co1">// first attribute</span>
+ Remove remove <span class="sy0">=</span> <span class="kw1">new</span> Remove<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>                         <span class="co1">// new instance of filter</span>
+ remove.<span class="me1">setOptions</span><span class="br0">(</span>options<span class="br0">)</span><span class="sy0">;</span>                           <span class="co1">// set options</span>
+ remove.<span class="me1">setInputFormat</span><span class="br0">(</span>data<span class="br0">)</span><span class="sy0">;</span>                          <span class="co1">// inform filter about dataset **AFTER** setting options</span>
+ Instances newData <span class="sy0">=</span> Filter.<span class="me1">useFilter</span><span class="br0">(</span>data, remove<span class="br0">)</span><span class="sy0">;</span>   <span class="co1">// apply filter</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:10 --><br>
+<!-- ws:start:WikiTextHeadingRule:49:&lt;h2&gt; --><h2 id="toc7"><a name="Filter-Filtering on-the-fly"></a><!-- ws:end:WikiTextHeadingRule:49 -->Filtering on-the-fly</h2>
+ The <tt><a class="wiki_link_ext" href="http://weka.sourceforge.net/doc.dev/weka/classifiers/meta/FilteredClassifier.html" rel="nofollow">FilteredClassifier</a></tt> meta-classifier is an easy way of filtering data on the fly. It removes the necessity of filtering the data before the classifier can be trained. Also, the data need not be passed through the trained filter again at prediction time. The following is an example of using this meta-classifier with the <tt>Remove</tt> filter and <tt>J48</tt> for getting rid of a numeric ID attribute in the data:<br>
+<!-- ws:start:WikiTextCodeRule:11:
+&lt;pre class=&quot;java&quot;&gt; import weka.classifiers.meta.FilteredClassifier;&lt;br/&gt; import weka.classifiers.trees.J48;&lt;br/&gt; import weka.filters.unsupervised.attribute.Remove;&lt;br/&gt; ...&lt;br/&gt; Instances train = ...         // from somewhere&lt;br/&gt; Instances test = ...          // from somewhere&lt;br/&gt; // filter&lt;br/&gt; Remove rm = new Remove();&lt;br/&gt; rm.setAttributeIndices(&amp;quot;1&amp;quot;);  // remove 1st attribute&lt;br/&gt; // classifier&lt;br/&gt; J48 j48 = new J48();&lt;br/&gt; j48.setUnpruned(true);        // using an unpruned J48&lt;br/&gt; // meta-classifier&lt;br/&gt; FilteredClassifier fc = new FilteredClassifier();&lt;br/&gt; fc.setFilter(rm);&lt;br/&gt; fc.setClassifier(j48);&lt;br/&gt; // train and make predictions&lt;br/&gt; fc.buildClassifier(train);&lt;br/&gt; for (int i = 0; i &amp;lt; test.numInstances(); i++) {&lt;br/&gt;   double pred = fc.classifyInstance(test.instance(i));&lt;br/&gt;   System.out.print(&amp;quot;ID: &amp;quot; + test.instance(i).value(0));&lt;br/&gt;   System.out.print(&amp;quot;, actual: &amp;quot; + test.classAttribute().value((int) test.instance(i).classValue()));&lt;br/&gt;   System.out.println(&amp;quot;, predicted: &amp;quot; + test.classAttribute().value((int) pred));&lt;br/&gt; }&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.classifiers.meta.FilteredClassifier</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">weka.classifiers.trees.J48</span><span class="sy0">;</span>
+ <span class="kw1">import</span> <span class="co2">weka.filters.unsupervised.attribute.Remove</span><span class="sy0">;</span>
+ ...
+ <span class="me1">Instances</span> train <span class="sy0">=</span> ...         <span class="co1">// from somewhere</span>
+ Instances test <span class="sy0">=</span> ...          <span class="co1">// from somewhere</span>
+ <span class="co1">// filter</span>
+ Remove rm <span class="sy0">=</span> <span class="kw1">new</span> Remove<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ rm.<span class="me1">setAttributeIndices</span><span class="br0">(</span><span class="st0">"1"</span><span class="br0">)</span><span class="sy0">;</span>  <span class="co1">// remove 1st attribute</span>
+ <span class="co1">// classifier</span>
+ J48 j48 <span class="sy0">=</span> <span class="kw1">new</span> J48<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ j48.<span class="me1">setUnpruned</span><span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span><span class="sy0">;</span>        <span class="co1">// using an unpruned J48</span>
+ <span class="co1">// meta-classifier</span>
+ FilteredClassifier fc <span class="sy0">=</span> <span class="kw1">new</span> FilteredClassifier<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ fc.<span class="me1">setFilter</span><span class="br0">(</span>rm<span class="br0">)</span><span class="sy0">;</span>
+ fc.<span class="me1">setClassifier</span><span class="br0">(</span>j48<span class="br0">)</span><span class="sy0">;</span>
+ <span class="co1">// train and make predictions</span>
+ fc.<span class="me1">buildClassifier</span><span class="br0">(</span>train<span class="br0">)</span><span class="sy0">;</span>
+ <span class="kw1">for</span> <span class="br0">(</span><span class="kw4">int</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i <span class="sy0">&lt;</span> test.<span class="me1">numInstances</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span>
+   <span class="kw4">double</span> pred <span class="sy0">=</span> fc.<span class="me1">classifyInstance</span><span class="br0">(</span>test.<span class="me1">instance</span><span class="br0">(</span>i<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+   <span class="kw3">System</span>.<span class="me1">out</span>.<span class="me1">print</span><span class="br0">(</span><span class="st0">"ID: "</span> <span class="sy0">+</span> test.<span class="me1">instance</span><span class="br0">(</span>i<span class="br0">)</span>.<span class="me1">value</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+   <span class="kw3">System</span>.<span class="me1">out</span>.<span class="me1">print</span><span class="br0">(</span><span class="st0">", actual: "</span> <span class="sy0">+</span> test.<span class="me1">classAttribute</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">value</span><span class="br0">(</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span> test.<span class="me1">instance</span><span class="br0">(</span>i<span class="br0">)</span>.<span class="me1">classValue</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+   <span class="kw3">System</span>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">(</span><span class="st0">", predicted: "</span> <span class="sy0">+</span> test.<span class="me1">classAttribute</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">value</span><span class="br0">(</span><span class="br0">(</span><span class="kw4">int</span><span class="br0">)</span> pred<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+ <span class="br0">}</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:11 --><br>
+Other handy meta-schemes in Weka:<br>
+<ul><li><tt><a class="wiki_link_ext" href="http://weka.sourceforge.net/doc.dev/weka/clusterers/FilteredClusterer.html" rel="nofollow">weka.clusterers.FilteredClusterer</a></tt> (since 3.5.4)</li><li><tt><a class="wiki_link_ext" href="http://weka.sourceforge.net/doc.dev/weka/associations/FilteredAssociator.html" rel="nofollow">weka.associations.FilteredAssociator</a></tt> (since 3.5.6)</li></ul><br>
+<!-- ws:start:WikiTextHeadingRule:51:&lt;h2&gt; --><h2 id="toc8"><a name="Filter-Batch filtering"></a><!-- ws:end:WikiTextHeadingRule:51 -->Batch filtering</h2>
+ On the command line, you can enable a second input/output pair (via <tt>-r</tt> and <tt>-s</tt>) with the <tt>-b</tt> option, in order to process the second file with the same filter setup as the first one. Necessary, if you're using attribute selection or standardization - otherwise you end up with incompatible datasets. This is done fairly easy, since one initializes the filter only once with the <tt>setInputFormat(Instances)</tt> method, namely with the training set, and then applies the filter subsequently to the training set <em>and</em> the test set. The following example shows how to apply the <tt>Standardize</tt> filter to a train and a test set.<br>
+<!-- ws:start:WikiTextCodeRule:12:
+&lt;pre class=&quot;java&quot;&gt; Instances train = ...   // from somewhere&lt;br/&gt; Instances test = ...    // from somewhere&lt;br/&gt; Standardize filter = new Standardize();&lt;br/&gt; filter.setInputFormat(train);  // initializing the filter once with training set&lt;br/&gt; Instances newTrain = Filter.useFilter(train, filter);  // configures the Filter based on train instances and returns filtered instances&lt;br/&gt; Instances newTest = Filter.useFilter(test, filter);    // create new test set&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> Instances train <span class="sy0">=</span> ...   <span class="co1">// from somewhere</span>
+ Instances test <span class="sy0">=</span> ...    <span class="co1">// from somewhere</span>
+ Standardize filter <span class="sy0">=</span> <span class="kw1">new</span> Standardize<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+ filter.<span class="me1">setInputFormat</span><span class="br0">(</span>train<span class="br0">)</span><span class="sy0">;</span>  <span class="co1">// initializing the filter once with training set</span>
+ Instances newTrain <span class="sy0">=</span> Filter.<span class="me1">useFilter</span><span class="br0">(</span>train, filter<span class="br0">)</span><span class="sy0">;</span>  <span class="co1">// configures the Filter based on train instances and returns filtered instances</span>
+ Instances newTest <span class="sy0">=</span> Filter.<span class="me1">useFilter</span><span class="br0">(</span>test, filter<span class="br0">)</span><span class="sy0">;</span>    <span class="co1">// create new test set</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:12 --><br>
+<!-- ws:start:WikiTextHeadingRule:53:&lt;h2&gt; --><h2 id="toc9"><a name="Filter-Calling conventions"></a><!-- ws:end:WikiTextHeadingRule:53 -->Calling conventions</h2>
+ The <tt>setInputFormat(Instances)</tt> method <strong>always</strong> has to be the last call before the filter is applied, e.g., with <tt>Filter.useFilter(Instances,Filter)</tt>. <em>Why?</em> First, it is the convention for using filters and, secondly, lots of filters generate the header of the output format in the <tt>setInputFormat(Instances)</tt> method with the currently set options (setting otpions <em>after</em> this call doesn't have any effect any more).<br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:55:&lt;h1&gt; --><h1 id="toc10"><a name="Classification"></a><!-- ws:end:WikiTextHeadingRule:55 -->Classification</h1>
+ The necessary classes can be found in this package:<br>
+<!-- ws:start:WikiTextCodeRule:13:
+&lt;pre class=&quot;java&quot;&gt; weka.classifiers&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> weka.<span class="me1">classifiers</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:13 --><br>
+<!-- ws:start:WikiTextHeadingRule:57:&lt;h2&gt; --><h2 id="toc11"><a name="Classification-Building a Classifier"></a><!-- ws:end:WikiTextHeadingRule:57 -->Building a Classifier</h2>
+ <!-- ws:start:WikiTextHeadingRule:59:&lt;h3&gt; --><h3 id="toc12"><a name="Classification-Building a Classifier-Batch"></a><!-- ws:end:WikiTextHeadingRule:59 -->Batch</h3>
+ A Weka classifier is rather simple to train on a given dataset. E.g., we can train an unpruned C4.5 tree algorithm on a given dataset <em>data</em>. The training is done via the <tt>buildClassifier(Instances)</tt> method.<br>
+<!-- ws:start:WikiTextCodeRule:14:
+&lt;pre class=&quot;java&quot;&gt; import weka.classifiers.trees.J48;&lt;br/&gt; ...&lt;br/&gt; String[] options = new String[1];&lt;br/&gt; options[0] = &amp;quot;-U&amp;quot;;            // unpruned tree&lt;br/&gt; J48 tree = new J48();         // new instance of tree&lt;br/&gt; tree.setOptions(options);     // set the options&lt;br/&gt; tree.buildClassifier(data);   // build classifier&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.java  {font-family:monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #000000; font-weight: bold;}
+.java .kw2 {color: #000066; font-weight: bold;}
+.java .kw3 {color: #003399;}
+.java .kw4 {color: #000066; font-weight: bold;}
+.java .co1 {color: #666666; font-style: italic;}
+.java .co2 {color: #006699;}
+.java .co3 {color: #008000; font-style: italic; font-weight: bold;}
+.java .coMULTI {color: #666666; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #009900;}
+.java .sy0 {color: #339933;}
+.java .st0 {color: #0000ff;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #006633;}
+.java .me2 {color: #006633;}
+.java span.xtra { display:block; }
+
+-->
+</style><pre class="java"> <span class="kw1">import</span> <span class="co2">weka.classifiers.trees.J48</span><span class="sy0">;</span>
+ ...
+ <span class="kw3">String</span><span class="br0">[</span><span class="br0">]</span> options <span class="sy0">=</span> <span class="kw1">new</span> <span class="kw3">String</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="sy0">;</span>
+ options<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st0">"-U"</span><span class="sy0">;</span>            <span class="co1">// unpruned tree</span>
+ J48 tree <span class="sy0">=</span> <span class="kw1">new</span> </pre></div></div></div></div></div></div></main></div></div></div></div></body><iframe allowtransparency="true" frameborder="0" id="abs-top-frame" src="./weka - Use Weka in your Java code_files/top.html" style="position: fixed; z-index: 4294967295; overflow: hidden; top: 0px; left: 0px; right: 0px; width: 138px; height: 13px; max-height: none; min-height: 0px; margin: 0px auto; padding: 0px; border: 0px; display: block; background-color: transparent;"></iframe></html>

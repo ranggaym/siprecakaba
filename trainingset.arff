@@ -1,0 +1,22 @@
+@relation pelamar
+
+@attribute ipk {bagus,cukup,kurang}
+@attribute psi {tinggi,sedang,rendah}
+@attribute ww {sburuk,buruk,baik,sbaik}
+@attribute class {ya,tidak}
+
+@data
+bagus,tinggi,sbaik,ya
+bagus,tinggi,sburuk,ya
+bagus,sedang,buruk,ya
+bagus,rendah,buruk,tidak
+cukup,tinggi,sbaik,ya
+cukup,sedang,buruk,ya
+cukup,sedang,sburuk,ya
+cukup,rendah,baik,ya
+cukup,rendah,buruk,tidak
+kurang,tinggi,sbaik,ya
+kurang,tinggi,sburuk,tidak
+kurang,sedang,sbaik,tidak
+kurang,sedang,baik,tidak
+kurang,rendah,sburuk,tidak

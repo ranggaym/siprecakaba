@@ -1,0 +1,15 @@
+no,ipk,psi,ww,class
+1,bagus,tinggi,sbaik,ya
+2,bagus,tinggi,sburuk,ya
+3,bagus,sedang,buruk,ya
+4,bagus,rendah,buruk,tidak
+5,cukup,tinggi,sbaik,ya
+6,cukup,sedang,buruk,ya
+7,cukup,sedang,sburuk,ya
+8,cukup,rendah,baik,ya
+9,cukup,rendah,buruk,tidak
+10,kurang,tinggi,sbaik,ya
+11,kurang,tinggi,sburuk,tidak
+12,kurang,sedang,sbaik,tidak
+13,kurang,sedang,baik,tidak
+14,kurang,rendah,sburuk,tidak

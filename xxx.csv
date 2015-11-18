@@ -1,0 +1,9 @@
+inst#,actual,predicted,error,prediction,ipk
+1,2:tidak,1:ya,+,1,bagus
+2,1:ya,1:ya,,1,bagus
+3,2:tidak,1:ya,+,1,cukup
+4,1:ya,1:ya,,1,cukup
+5,2:tidak,2:tidak,,1,kurang
+6,1:ya,2:tidak,+,1,kurang
+7,2:tidak,2:tidak,,1,kurang
+

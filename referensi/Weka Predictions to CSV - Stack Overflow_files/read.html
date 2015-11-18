@@ -1,0 +1,24 @@
+
+<!-- saved from url=(0176)https://stackauth.com/auth/global/read?request=fC5PL9ZBxiYaAb5Jiny6OwwsBkKlSXymOxXdflmMLmPM8UqK5%2BxIuyUoJswIEKuiQKvuZ2KyUmXEhKHhWmkkrw%3D%3D&nonce=AkknVQAAAADUAyQJ1nJp9g%3D%3D -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                  <script>
+                  var data = {"ReadSession":"https://stackauth.com/auth/global/read-session","Request":"fC5PL9ZBxiYaAb5Jiny6OwwsBkKlSXymOxXdflmMLmPM8UqK5+xIuyUoJswIEKuiQKvuZ2KyUmXEhKHhWmkkrw==","Nonce":"AkknVQAAAADUAyQJ1nJp9g==","Referrer":"http://stackoverflow.com/questions/13130005/weka-predictions-to-csv","StorageName":"GlobalLogin"};
+
+                  var toMsg = window.parent;
+
+                  var obj = localStorage ? localStorage.getItem(data.StorageName) : null;
+                  if(obj != null) {
+                  var req = new XMLHttpRequest();
+                  req.open('POST', data.ReadSession+'?request='+encodeURIComponent(data.Request)+'&nonce='+encodeURIComponent(data.Nonce)+'&seriesAndToken='+encodeURIComponent(obj), false);
+                  req.send(null);
+                  
+                    if(req.status == 200){
+                      toMsg.postMessage(req.responseText, data.Referrer);
+                    }else{
+                      toMsg.postMessage('No Session', data.Referrer);
+                    }
+                  }else{
+                    toMsg.postMessage('No Local Storage', data.Referrer);
+                  }
+                  </script>
+                  <style type="text/css"></style></head><body></body></html>

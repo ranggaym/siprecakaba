@@ -1,0 +1,1302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0063)https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="search" href="https://weka.wikispaces.com/space/opensearch" type="application/opensearchdescription+xml" title="Wikispaces Search (weka Wiki)">
+<link rel="alternate" type="application/x-wiki" title="Edit This Page" href="https://weka.wikispaces.com/page/edit/weka_experiment_DatabaseUtils.props">
+<link rel="alternate" title="weka - All Changes" href="https://weka.wikispaces.com/wiki/xmla?v=rss_2_0" type="application/rss+xml">
+<link rel="alternate" title="weka : weka_experiment_DatabaseUtils.props - Discussion" href="https://weka.wikispaces.com/message/xml/weka_experiment_DatabaseUtils.props?v=rss_2_0" type="application/rss+xml">
+<link rel="alternate" title="weka : weka_experiment_DatabaseUtils.props - Edits" href="https://weka.wikispaces.com/page/xml/weka_experiment_DatabaseUtils.props?v=rss_2_0" type="application/rss+xml">
+<link rel="microsummary" href="https://weka.wikispaces.com/page/microsummary/weka_experiment_DatabaseUtils.props/edits">
+<link rel="microsummary" href="https://weka.wikispaces.com/page/microsummary/weka_experiment_DatabaseUtils.props/messages">
+<script type="text/javascript" async="" src="./weka - weka_experiment_DatabaseUtils.props_files/ga.js"></script><script type="text/javascript">
+  
+if (typeof ws === 'undefined') ws = {};
+ws.context = {
+  instance: {
+    id: '1',
+    url: 'wikispaces.com',
+    isMain: true,
+    supportsGoogleDocs: false,
+    isTesClassroom: false,
+  },
+  user: {
+    id: '',
+    username: '',
+    status: '',
+    locale: 'en_US',
+    imageUrlPrefix: 'https://ssl.wikicdn.com/i/user_none_',
+    isTeacher: false,
+    canAdministerWiki: false,
+  },
+  wiki: {
+    id: '2171807',
+    name: 'weka',
+    text: 'weka',
+    module: 'B',
+    isClassroom: false,
+    isTesClassroom: false
+    ,defaultSpaceId: 2171807
+    ,isWwwWiki: false
+  },
+  project: {
+    id: '2171807',
+    name: ''
+  },
+  space: {
+    id: '2171807',
+    name: 'weka',
+    isDefaultSpace: true,
+    isDefaultTemplate: false
+  },
+
+  environment_name: 'prod',
+
+  path: {
+    object: 'page',
+    method: 'view',
+    page: 'weka_experiment_DatabaseUtils.props',
+    id: ''
+  },
+
+  settings: {
+    main_domain: 'wikispaces.com',
+    session_url: 'https://session.wikispaces.com/1/',
+    asset_url_prefix: 'https://ssl.wikicdn.com',
+    beta_features: false,
+    isMobileSite: false,
+    isUploadCapable: true,
+    can_discuss: false,
+    has_gdocs: false,
+    isDialog: false,
+    pwin: ''
+  },
+  clockSkewMillis: 1428639839239 - ((window.performance && window.performance.timing.responseStart > 0) ? window.performance.timing.responseStart : (new Date()).getTime())
+}
+
+
+// legacy javascript API variables, use the above instead
+var wikispaces_isUserLoggedIn = !!ws.context.user.id;
+var wikispaces_isMain = ws.context.instance.isMain;
+var wikispaces_username = ws.context.user.username;
+var wikispaces_spaceName = ws.context.space.name;
+var wikispaces_projectName = ws.context.project.name;
+var wikispaces_wikiName = ws.context.wiki.name;
+var wikispaces_wikiText = ws.context.wiki.text;
+var wikispaces_isDefaultSpace = ws.context.space.isDefaultSpace;
+var wikispaces_method = ws.context.path.method;
+var wikispaces_object = ws.context.path.object;
+var wikispaces_page = ws.context.path.page;
+var wikispaces_id = ws.context.path.id;
+var wikispaces_domain = ws.context.instance.url;
+var wikispaces_isUserOrganizer = false;
+var wikispaces_main_domain = ws.context.settings.asset_url_prefix;
+var wikispaces_asset_url_prefix = ws.context.settings.asset_url_prefix;
+var wikispaces_beta_features = ws.context.settings.beta_features;
+var wikispaces_isMobileSite = ws.context.settings.isMobileSite;
+var wikispaces_isUploadCapable = ws.context.settings.isUploadCapable;
+var wikispaces_can_discuss = ws.context.settings.can_discuss;
+var wikispaces_has_gdocs = ws.context.settings.has_gdocs;
+
+</script><title>weka - weka_experiment_DatabaseUtils.props</title>
+<meta charset="utf-8">
+<link rel="apple-touch-icon" sizes="144x144" href="https://ssl.wikicdn.com/_/z6371z4x/i/logo-144.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://ssl.wikicdn.com/_/j5j77xz3/i/logo-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://ssl.wikicdn.com/_/vq8j5432/i/logo-72.png">
+<link rel="apple-touch-icon" href="https://ssl.wikicdn.com/_/38515190/i/logo-57.png">
+<link rel="shortcut icon" href="https://ssl.wikicdn.com/_/55v9k02z/i/logo-16.png">
+<style type="text/css">
+/* Standard theme styles */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.ws-theme-header-inner,
+.ws-theme-body-inner,
+.ws-theme-footer-inner,
+.ws-theme-content-inner,
+.ws-theme-sidebar-inner {
+  position: relative;
+}
+.ws-theme-header-inner:after,
+.ws-theme-body-inner:after,
+.ws-theme-footer-inner:after,
+.ws-theme-content-inner:after,
+.ws-theme-sidebar-inner:after,
+.ws-theme-menu-inner:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ws-theme-content, .ws-theme-sidebar {
+  overflow-x: auto;
+}
+.ws-theme-footer {
+  text-align: right;
+}
+.ws-theme-footer a, .ws-theme-footer a:hover {
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .ws-theme-container {
+    width: 750px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .ws-theme-content {
+    width: 550px;
+    min-height: 384px;
+    float: right;
+  }
+  .ws-theme-sidebar {
+    width: 200px;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .ws-theme-container {
+    width: 970px;
+  }
+  .ws-theme-content {
+    width: 770px;
+    min-height: 496px;
+  }
+}
+@media (min-width: 1200px) {
+  .ws-theme-container {
+    width: 1170px;
+  }
+  .ws-theme-content {
+    width: 970px;
+    min-height: 600px;
+  }
+}
+/* End standard theme styles */
+</style>
+<style type="text/css">
+/* Theme-specific styles */
+body {
+  background-color: #ECEFED;
+}
+
+.ws-theme-header .WikiSearch .WikiSearchInput,
+.ws-theme-sidebar .WikiSearch .WikiSearchInput,
+.ws-theme-footer .WikiSearch .WikiSearchInput {
+  width: 100%;
+}
+
+.ws-theme-header a,
+.ws-theme-sidebar a,
+.ws-theme-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.ws-theme-header a:hover,
+.ws-theme-sidebar a:hover,
+.ws-theme-footer a:hover {
+  text-decoration: underline;
+}
+.ws-theme-header img,
+.ws-theme-sidebar img,
+.ws-theme-footer img {
+  border: none;
+}
+
+.ws-theme-header,
+.ws-theme-sidebar {
+  display: none;
+}
+
+.ws-theme-sidebar,
+.ws-theme-footer {
+  color: #000000;
+}
+
+.ws-theme-body-inner {
+  padding: 8px 5px;
+}
+
+.ws-theme-content {
+  overflow-x: visible;
+}
+.ws-theme-content-inner {
+  background-color: #FFF;
+  padding: 15px;
+}
+
+.ws-theme-footer {
+  font-size: 12px;
+}
+.ws-theme-footer-inner {
+  padding: 0 15px 15px 15px;
+}
+.ws-theme-footer .WikiLicense img {
+  vertical-align: text-bottom;
+}
+
+@media (min-width: 768px) {
+  .ws-theme-container {
+    width: auto;
+  }
+
+  .ws-theme-header,
+  .ws-theme-sidebar {
+    display: block;
+  }
+
+  .ws-theme-header {
+    color: #FFF;
+    background: #CCCCCC url('https://ssl.wikicdn.com/_/94v39788/i/theme_swoop.png') no-repeat 100% -25px;
+  }
+  .ws-theme-header-inner {
+    padding: 15px 0;
+  }
+
+  .ws-theme-body-inner {
+    padding: 15px;
+  }
+
+  .ws-theme-content {
+    width: auto;
+    float: none;
+    margin-left: 215px;
+  }
+  .ws-theme-content-inner {
+    width: 100%;
+    float: left;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.25);
+  }
+
+  .ws-theme-sidebar .WikiActions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ws-theme-sidebar .WikiActions > li {
+    padding: 2px;
+  }
+  .ws-theme-sidebar .WikiCustomNav ol {
+    padding-left: 16px;
+  }
+  .ws-theme-sidebar .WikiCustomNav ol.includePageList {
+    padding-left: 0;
+  }
+  .ws-theme-sidebar .ws-theme-nav-edit {
+    color: #666;
+    text-align: center;
+  }
+}
+/* End theme-specific styles */
+</style>
+<link rel="stylesheet" href="./weka - weka_experiment_DatabaseUtils.props_files/217420326D.gz.css" type="text/css">
+<link rel="stylesheet" href="./weka - weka_experiment_DatabaseUtils.props_files/9q897620-internal-bootstrap.css" type="text/css">
+<link rel="stylesheet" href="./weka - weka_experiment_DatabaseUtils.props_files/2x6v5106-internal.css" type="text/css">
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/70002v41-top.min.js" type="text/javascript"></script><style type="text/css"></style>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+
+  var wsGoogleAccount = 'UA-80504-1';
+  _gaq.push(['_setAccount', wsGoogleAccount]);
+  _gaq.push(['_gat._anonymizeIp']);
+  _gaq.push(['_setDomainName', 'wikispaces.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_setCustomVar', 2, 'Authenticated', 'Guest', 2]);
+  _gaq.push(['_trackPageview']);
+</script><style type="text/css" id="js-fixed-header-a-style">.wiki a[name]:before { content: "\00A0"; display: inline-block; visibility: hidden; width: 0; padding-top: 28px; margin-top: -28px; }</style><script type="text/javascript" src="./weka - weka_experiment_DatabaseUtils.props_files/07z93j80.gz.js"></script></head>
+<body><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#WikiContent" class="hidden sr-only sr-only-focusable">Skip to main content</a><div id="js-fixed-header-holder" class="fixed"><div class="WikispacesContent WikispacesBs3" role="banner">
+      <div id="WikispacesBanner" class="BannerDisplayed" style=""><script type="text/javascript">_gaq.push(["_trackEvent", "Marketing", "Banner", "classroom"]);function dismissMarketingBanner() {  var cookieDomain = ws.context.instance.url;  var hostname = window.location.hostname;  if (hostname.indexOf(cookieDomain, hostname.length - cookieDomain.length) === -1) {    cookieDomain = hostname;  }  ws.common.displayBanner(false);  ws.cookie.set("ws-banner-classroom", 1, {expires: 365 * 86400, domain: cookieDomain});   return false;}</script><i class="fa fa-times fa-fw ws-close" onclick="dismissMarketingBanner();"></i>Wikispaces Classroom is now free, social, and easier than ever. <a href="https://www.wikispaces.com/t/y/classroom-switch/banner/2/">Try it today.</a></div>
+    <div class="ws-main-top-nav visible-xs">
+    <div class="navbar navbar-static-top" style="margin-bottom: 0;">
+      <div class="container">
+                <div class="navbar-header">
+          <div class="visible-xs pull-left">
+            <a href="https://weka.wikispaces.com/space/menu" class="WikispacesDialogLink btn navbar-btn">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+          <div class="visible-xs pull-right js-globalnav-popover-container">
+                        <a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props" class="btn navbar-btn ws-mobile-guest-username js-globalnav-popover-trigger" data-original-title="" title="">
+              guest
+            </a>
+                        <div class="hidden js-globalnav-popover-content">
+              <div class="WikispacesContent WikispacesBs3">
+                <div class="WikiInternalHeaderNav noHide">
+  <div class="WikiInternalHeaderNavMenu">
+                          
+                  <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/user/join?goto=https%3A%2F%2Fweka.wikispaces.com%2Fspace%2Fjoin" rel="nofollow" class="WikispacesXDomainDialogLink">Join</a></span>
+
+          <span class="divider">|</span>
+        
+        <span class="WikiInternalHeaderNavMenuArea"><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help</a></span>
+
+        <span class="divider">|</span>
+      
+      <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props" rel="nofollow" class="WikispacesXDomainDialogLink">Sign In</a></span>
+      </div>
+<div id="NoticeTool" class="headerPanel hidden" style="display: none;"><div id="NoticeToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"><li class="js-last text-center"><a href="https://www.wikispaces.com/mail/list/?folder=Inbox">View All Messages</a></li></ol></div></div><div id="WikiTool" class="headerPanel hidden" style="display: none;"><div id="WikiToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"></ol></div></div><div id="HelpTool" class="headerPanel hidden" style="display: none;"><div id="HelpToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"><li class="js-last divider hidden"></li><li><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help Wiki</a></li></ol></div></div></div>              </div>
+            </div>
+          </div>
+          <div class="ws-navbar-middle-xs">
+            <div class="navbar-brand" role="navigation">
+              <a href="https://www.wikispaces.com/" class="ws-logo"></a>
+              <i class="fa fa-angle-right"></i>
+              <a href="https://weka.wikispaces.com/">weka</a>
+                              <i class="fa fa-angle-right"></i> <a href="https://weka.wikispaces.com/home">Home</a>
+              
+            </div>
+          </div>
+                    <form action="https://weka.wikispaces.com/search/view" method="post" class="navbar-form ws-include-xs pull-left ws-navbar-search hidden-xs" role="search"><input type="hidden" name="wikispacesFormToken" value="5077b25bb954e27757e6fa6ef81584df2595d263"><input type="text" class="form-control search-query" name="q" value="" placeholder="Search"> </form>
+                  </div>
+      </div>
+    </div>
+  </div>
+      <div class="hidden-xs"><div class="WikiInternalHeaderNav WikiElement floating" style="right: -144px;">
+  <div class="WikiInternalHeaderNavMenu">
+                                    <span class="WikiInternalHeaderNavMenuArea guestUserName">guest</span><span class="slideMarker divider">|</span>
+        
+                  <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/user/join?goto=https%3A%2F%2Fweka.wikispaces.com%2Fspace%2Fjoin" rel="nofollow" class="WikispacesXDomainDialogLink">Join</a></span>
+
+          <span class="divider">|</span>
+        
+        <span class="WikiInternalHeaderNavMenuArea"><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help</a></span>
+
+        <span class="divider">|</span>
+      
+      <span class="WikiInternalHeaderNavMenuArea"><a href="https://www.wikispaces.com/site/signin?goto=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props" rel="nofollow" class="WikispacesXDomainDialogLink">Sign In</a></span>
+      </div>
+<div id="NoticeTool" class="headerPanel hidden" style="display: none;"><div id="NoticeToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"><li class="js-last text-center"><a href="https://www.wikispaces.com/mail/list/?folder=Inbox">View All Messages</a></li></ol></div></div><div id="WikiTool" class="headerPanel hidden" style="display: none;"><div id="WikiToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"></ol></div></div><div id="HelpTool" class="headerPanel hidden" style="display: none;"><div id="HelpToolList"><ol class="dropdown-menu dropdown-menu-right" style="display: block;"><li class="js-last divider hidden"></li><li><a class="js-help-trigger" rel="nofollow" href="https://help.wikispaces.com/">Help Wiki</a></li></ol></div></div></div></div>
+  </div></div><div id="js-fixed-header-offset" style="margin-top: 28px;">
+<header class="ws-theme-header" role="banner">
+  <div class="ws-theme-container">
+    <div class="ws-theme-header-inner">
+      <a href="https://weka.wikispaces.com/" class="WikiLogo WikiElement"><img src="./weka - weka_experiment_DatabaseUtils.props_files/logo.gif" alt="weka"></a>    </div>
+  </div>
+</header>
+
+<div class="ws-theme-body">
+  <div class="ws-theme-container">
+    <div class="ws-theme-body-inner">
+      <nav class="ws-theme-sidebar" role="navigation">
+        <div class="ws-theme-sidebar-inner">
+          <div class="ws-theme-menu">
+            <div class="ws-theme-menu-inner">
+              <ul class="WikiActions WikiElement WikiControls">
+    <li id="WikiActionHome"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/"><i class="fa fa-home fa-fw"></i></a><a href="https://weka.wikispaces.com/">Wiki Home</a></div></li>
+    <li id="WikiActionChanges"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/wiki/changes"><i class="fa fa-clock-o fa-fw"></i></a><a href="https://weka.wikispaces.com/wiki/changes">Recent Changes</a></div></li>
+    <li id="WikiActionPagesAndFiles"><div><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/space/content"><i class="fa fa-file-text-o fa-fw"></i></a><a href="https://weka.wikispaces.com/space/content">Pages and Files</a></div></li>
+    <li id="WikiActionMembers"><div class="js-member-link"><span class="WikiActionSupplemental" style="float: right;"></span><a href="https://weka.wikispaces.com/wiki/members"><i class="fa fa-user fa-fw"></i></a><a href="https://weka.wikispaces.com/wiki/members">Members</a></div></li>
+</ul>
+              <form action="https://weka.wikispaces.com/search/view" method="post" class="WikiSearch WikiElement" role="search"><input type="text" class="form-control WikiSearchInput" name="q" value="" placeholder="Search"> </form>              <div class="WikiCustomNav WikiElement wiki"><a href="http://weka.wikispaces.com/">Home</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/space/pagelist" rel="nofollow">All pages</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/tag/list" rel="nofollow">All tags</a><br>
+<a class="wiki_link_ext" href="http://weka.wikispaces.com/space/filelist" rel="nofollow">All files</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Packages">Packages</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/FAQ">FAQ</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Not+So+FAQ">Not So FAQ</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/Troubleshooting">Troubleshooting</a><br>
+<a class="wiki_link" href="https://weka.wikispaces.com/WEKA+Mailing+List">Mailing List</a></div>              <div class="ws-theme-nav-edit">
+                              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="ws-theme-content" role="main">
+        <div class="ws-theme-content-inner">
+          <div class="contentBox"><div class="innerContentBox" id="WikiContent">
+
+<script type="text/template" id="comment-footer-template">
+
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</script>
+
+<script type="text/template" id="comment-content-template">
+<div class="ws-box commentView">
+  <div class="comment-close">
+    <button type="button" class="closeme close" aria-hidden="true"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="commentHeader">
+    <p class="ws-stream-meta command-context">
+      <a class="userLink userLinkPicture" href="<%= userCreated.url %>"><img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16"></a>
+      <a href="<%= userCreated.url %>"><%= userCreated.username %></a>
+      <% if (smartDate == '__live__') { %>
+      <abbr class="timeago" title="<%= (new Date(parseInt(dateCreated, 10) * 1000)).toISOString() %>">
+        <%= dateCreated %>
+      </abbr>
+      <% } else { %>
+        <%- smartDate %>
+      <% } %>
+      <% if (ws.context.user.canAdministerWiki && ws.comments.Manager.readOnly) { %>
+        <i class="fa fa-trash-o contextual-command delete ws-tip" title="Delete Comment"></i>
+      <% } %>
+    </p>
+  </div>
+
+  <div class="commentBody">
+    <div class="commentContent">
+      <%= description %>
+    </div>
+
+      <% for(i = 0; i < replyPages.length; i++) { %>
+        <% for(var j = 0; j < replyPages[i].digests.length; j++) { %>
+      <div class="commentReply" data-id="<%= replyPages[i].digests[j].id %>">
+        <p class="ws-stream-meta command-context">
+          <a class="userLink userLinkPicture" href="<%= replyPages[i].digests[j].userCreated.url %>"><img class="userPicture" src="<%= replyPages[i].digests[j].userCreated.imageUrl %>" width="16" height="16"></a>
+          <a href="<%= replyPages[i].digests[j].userCreated.url %>"><%= replyPages[i].digests[j].userCreated.username %></a>
+          <% if (smartDate == '__live__') { %>
+          <abbr class="timeago" title="<%= (new Date(parseInt(replyPages[i].digests[j].dateCreated, 10) * 1000)).toISOString() %>">
+            <%= new Date(parseInt(replyPages[i].digests[j].dateCreated, 10) * 1000).toLocaleString() %>
+          </abbr>
+          <% } else { %>
+            <%- smartDate %>
+          <% } %>
+          <% if (ws.context.user.canAdministerWiki) { %>
+          <i class="fa fa-trash-o contextual-command delete-reply ws-tip" title="Delete Reply"></i>
+          <% } %>
+          </p>
+        <div class="commentContent"><%= replyPages[i].digests[j].body %></div>
+      </div>
+        <% } %>
+      <% } %>
+
+      <form class="reply commentReply">
+        <div class="form-group">
+          <textarea name="reply" placeholder="Reply" class="form-control" /></textarea>
+        </div>
+        <div class="btn-toolbar">
+          <button type="submit" class="btn btn-primary btn-sm" name="go" value="1">Post</button>
+
+          <% if (ws.context.user.id) { %>
+            <% if (monitored) { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-monitor ws-tip active" title="You are monitoring replies."><i class="fa fa-eye"></i></button>
+            <% } else { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-monitor ws-tip" title="You are not monitoring replies."><i class="fa fa-eye"></i></button>
+            <% } %>
+          <% } %>
+          <% if (ws.context.user.canAdministerWiki) { %>
+            <% if (locked) { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-lock ws-tip active" title="Replies are not allowed."><i class="fa fa-lock"></i></button>
+            <% } else { %>
+            <button type="button" class="btn btn-default btn-sm pull-right toggle-lock ws-tip" title="Replies are allowed."><i class="fa fa-lock"></i></button>
+            <% } %>
+          <% } %>
+
+          <i class="fa fa-spinner fa-spin spinner pull-right hidden"></i>
+        </div>
+      </form>
+   </div>
+
+   
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</div>
+</script>
+
+<script type="text/template" id="comment-composer-template">
+<div class="ws-box commentView">
+  <div class="commentComposer">
+    <div class="comment-close">
+      &nbsp;<button type="button" class="close closeme" aria-hidden="true"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="commentHeader">
+      <p class="ws-stream-meta command-context">
+        <img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16">
+        <a href="#" onclick="return false;"><%= userCreated.username %></a>
+      </p>
+    </div>
+    <div class="commentBody">
+      <textarea name="comment" class="compose form-control" placeholder="Comment"/></textarea><br/>
+      <div class="btn-toolbar">
+        <button type="button" class="btn btn-default btn-sm monitored active pull-right" style="margin-left: 6px" onclick="jQuery(this).toggleClass('active')"><i class="fa fa-eye"></i></button>
+        <button type="button" class="btn btn-default btn-sm locked btn-toggle pull-right" onclick="jQuery(this).toggleClass('active')"><i class="fa fa-lock"></i></button>
+        <button type="button" class="btn btn-primary btn-sm closeme">Save</button>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="commentFooter modal-footer">
+  <div class="pull-left">
+    <button type="button" class="btn btn-default btn-sm previous"><i class="fa fa-arrow-left"></i></button>
+    <button type="button" class="btn btn-default btn-sm next"><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <% if (ws.context.user.canAdministerWiki && !ws.comments.Manager.readOnly) { %>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-sm remove">Remove</button>
+  </div>
+  <% } %>
+</div>
+
+</div>
+</script>
+
+<script type="text/template" id="comment-proxy-template">
+<div class="comment-proxy">
+  <span class="commentUser">
+  <% if (userCreated) { %>
+    <img class="userPicture" src="<%= userCreated.imageUrl %>" width="16" height="16">
+  <% } else { %>
+    <img class="userPicture" src="<%= ws.context.user.imageUrlPrefix %>sm.jpg" width="16" height="16">
+  <% } %>
+  </span>
+  <span class="commentReplies"><%= 1 + _(replyPages).reduce(function(memo, page){ return memo + page.digests.length; }, 0) %></span>
+</div>
+</script>
+
+<div class="ws-menu-bar WikiControls WikispacesContent WikispacesBs3">
+  
+    <h1 class="pageTitle"><a href="./weka - weka_experiment_DatabaseUtils.props_files/weka - weka_experiment_DatabaseUtils.props.html">weka_experiment_DatabaseUtils.props</a></h1>
+      <div class="btn-group pull-right">
+          <span class="btn btn-default disabled tipme" title="" data-original-title="you do not have permission to edit this page"><i class="fa fa-pencil fa-fw"></i> Edit</span>          <a class="btn btn-default tipme" title="" href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#discussion" data-original-title="no discussion posts"><i class="fa fa-comments fa-fw"></i> 0</a>          <a class="btn btn-default tipme" title="" href="https://weka.wikispaces.com/page/history/weka_experiment_DatabaseUtils.props" data-original-title="view 1 revision"><i class="fa fa-clock-o fa-fw"></i> 1</a>          <a class="btn btn-default ws-btn-more dropdown-toggle tipme" title="" href="https://weka.wikispaces.com/page/menu/weka_experiment_DatabaseUtils.props" data-original-title="more options"><i class="icon-height-only fa-fw"></i>…</a>        <ul class="ws-more-menu dropdown-menu dropdown-menu-right">
+              <li class=" dropdown"><a class=" ws-tag-dropdown-toggle" href="https://weka.wikispaces.com/page/tags/weka_experiment_DatabaseUtils.props"><span class="pull-right">1</span> <i class="fa fa-tag fa-fw"></i> Tags</a>
+          <div class="dropdown-menu dropdown-menu-right ws-tag-dropdown-menu">
+          
+
+
+
+<form action="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#" name="WikiTagForm" class="WikiTagForm"><input type="hidden" name="wikispacesFormToken" value="cce9e29274e275e084522d1b2846f3ecdc98262c"><input type="hidden" name="wikispacesFormToken" value="cce9e29274e275e084522d1b2846f3ecdc98262c">
+  <div class="WikiTagList">
+    <i class="fa fa-tag ws-action"></i>
+        <ul class="list-unstyled">
+                          <li><a href="https://weka.wikispaces.com/space/content?tag=properties%20file">properties file</a></li>
+              </ul>
+      </div>
+  </form>      </div>
+    </li>
+              <li class="divider"></li>
+            <li class=""><a class=" WikispacesDialogLink" href="https://weka.wikispaces.com/wiki/addmonitor?monitorLink=page%3Aweka_experiment_DatabaseUtils.props"><i class="fa fa-eye fa-fw"></i> Notify</a>
+    </li>
+        <li class=""><a class=" WikispacesDialogLink" href="https://weka.wikispaces.com/page/rss/weka_experiment_DatabaseUtils.props"><i class="fa fa-rss fa-fw"></i> RSS</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/page/links/weka_experiment_DatabaseUtils.props"><i class="fa fa-link fa-fw"></i> Backlinks</a>
+    </li>
+              <li class="divider"></li>
+            <li class=""><a class="" href="https://weka.wikispaces.com/page/code/weka_experiment_DatabaseUtils.props"><i class="fa fa-code fa-fw"></i> Source</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props?f=print"><i class="fa fa-print fa-fw"></i> Print</a>
+    </li>
+        <li class=""><a class="" href="https://weka.wikispaces.com/page/pdf/weka_experiment_DatabaseUtils.props"><i class="fa fa-cloud-download fa-fw"></i> Export (PDF)</a>
+    </li>
+      </ul>  </div>
+  </div>
+
+
+
+
+  <textarea class="form-control" id="autosaveContent" style="display:none;" rows="1" cols="1"></textarea>
+  <div id="autosavePrompt" style="display:none;"></div>
+
+<div class="commentContainer">
+  <div class="commentSubject">
+  <div class="wiki wikiPage" id="content_view">
+  <!-- ws:start:WikiTextTocRule:14:&lt;img id=&quot;wikitext@@toc@@normal&quot; class=&quot;WikiMedia WikiMediaToc&quot; title=&quot;Table of Contents&quot; src=&quot;/site/embedthumbnail/toc/normal?w=225&amp;h=100&quot;/&gt; --><div id="toc"><h1 class="nopad">Table of Contents</h1><!-- ws:end:WikiTextTocRule:14 --><!-- ws:start:WikiTextTocRule:15: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#File"> File </a></div>
+<!-- ws:end:WikiTextTocRule:15 --><!-- ws:start:WikiTextTocRule:16: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#Description"> Description </a></div>
+<!-- ws:end:WikiTextTocRule:16 --><!-- ws:start:WikiTextTocRule:17: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#Version"> Version </a></div>
+<!-- ws:end:WikiTextTocRule:17 --><!-- ws:start:WikiTextTocRule:18: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#Fields"> Fields </a></div>
+<!-- ws:end:WikiTextTocRule:18 --><!-- ws:start:WikiTextTocRule:19: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#Database type mapping"> Database type mapping </a></div>
+<!-- ws:end:WikiTextTocRule:19 --><!-- ws:start:WikiTextTocRule:20: --><div style="margin-left: 1em;"><a href="https://weka.wikispaces.com/weka_experiment_DatabaseUtils.props#See also"> See also </a></div>
+<!-- ws:end:WikiTextTocRule:20 --><!-- ws:start:WikiTextTocRule:21: --></div>
+<!-- ws:end:WikiTextTocRule:21 --><br>
+<!-- ws:start:WikiTextHeadingRule:2:&lt;h1&gt; --><h1 id="toc0"><a name="File"></a><!-- ws:end:WikiTextHeadingRule:2 --> File </h1>
+<tt>weka/experiment/DatabaseUtils.props</tt><br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:4:&lt;h1&gt; --><h1 id="toc1"><a name="Description"></a><!-- ws:end:WikiTextHeadingRule:4 --> Description </h1>
+Defines the <a class="wiki_link" href="https://weka.wikispaces.com/Databases">database</a> setup, i.e., JDBC driver information, JDBC URL, database type conversion, etc.<br>
+<br>
+<!-- ws:start:WikiTextHeadingRule:6:&lt;h1&gt; --><h1 id="toc2"><a name="Version"></a><!-- ws:end:WikiTextHeadingRule:6 --> Version </h1>
+<ul><li>&gt;= 3.1.3</li></ul><br>
+<!-- ws:start:WikiTextHeadingRule:8:&lt;h1&gt; --><h1 id="toc3"><a name="Fields"></a><!-- ws:end:WikiTextHeadingRule:8 --> Fields </h1>
+<ul><li>General<ul><li><tt>jdbcDriver</tt><br>
+the comma-separated list of jdbc drivers to try loading</li><li><tt>jdbcURL</tt><br>
+the JDBC URL to the database</li></ul></li><li>Table creation<ul><li><tt>CREATE_STRING</tt><br>
+database specific datatype, e.g., <tt>TEXT</tt></li><li><tt>CREATE_INT</tt><br>
+database specific datatype, e.g., <tt>INT</tt></li><li><tt>CREATE_DOUBLE</tt><br>
+database specific datatype, e.g., <tt>DOUBLE</tt></li></ul></li><li>Database flags<ul><li><tt>checkUpperCaseNames</tt><br>
+necessary if database turns column names into upper case ones, e.g., HSQLDB</li><li><tt>checkLowerCaseNames</tt> (&gt; 3.5.3)<br>
+necessary if database turns column names into lower case ones, e.g., PostgreSQL</li><li><tt>checkForTable</tt> (&gt; 3.5.3)<br>
+Checks whether the tables in the query are available in the meta-data of the JDBC Connection. Some tables, like <tt>pg_tables</tt>, exist but are not available through the meta-data</li><li><tt>setAutoCommit</tt><br>
+setting for <tt>java.sql.Connection.setAutoCommit(boolean)</tt></li><li><tt>createIndex</tt><br>
+whether to create a primary key <tt>Key_IDX</tt> in the results table of an experiment</li></ul></li><li>Special flags for DatabaseLoader/Saver (package <tt>weka.core.converters</tt>)<ul><li><tt>nominalToStringLimit</tt> (&gt;= 3.4.1)<br>
+beyond this limit, nominal columns are loaded as STRING attributes and no longer as NOMINAL ones</li><li><tt>idColumn</tt> (&gt;= 3.4.1)<br>
+unique key in table that allows ordering for incremental loading</li><li><tt>Keywords</tt> (&gt; 3.5.8, &gt; 3.6.0)<br>
+lists all the reserved keywords of the current database type<br>
+default: <tt>AND,ASC,BY,DESC,FROM,GROUP,INSERT,ORDER,SELECT,UPDATE,WHERE</tt></li><li><tt>KeywordsMaskChar</tt> (&gt; 3.5.8, &gt; 3.6.0)<br>
+the character to append to attribute names/table names that would be interpreted as keywords by the database, in order to avoid exceptions when executing SQL commands<br>
+defaut: <tt>_</tt></li></ul></li></ul><br>
+<!-- ws:start:WikiTextHeadingRule:10:&lt;h1&gt; --><h1 id="toc4"><a name="Database type mapping"></a><!-- ws:end:WikiTextHeadingRule:10 --> Database type mapping </h1>
+In order to import the data from database correctly into Weka, one has to specify what JDBC datatype corresponds to what Java SQL retrieval method. Here's an overview of how the Java types are mapped to Weka's attribute types:<br>
+<br>
+
+
+<table class="wiki_table">
+    <tbody><tr>
+        <td><strong>Java type</strong><br>
+</td>
+        <td><strong>Java method</strong><br>
+</td>
+        <td><strong>Identifier</strong><br>
+</td>
+        <td><strong>Weka attribute type</strong><br>
+</td>
+        <td><strong>Version</strong><br>
+</td>
+    </tr>
+    <tr>
+        <td>String<br>
+</td>
+        <td>getString()<br>
+</td>
+        <td>0<br>
+</td>
+        <td>nominal<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>boolean<br>
+</td>
+        <td>getBoolean()<br>
+</td>
+        <td>1<br>
+</td>
+        <td>nominal<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>double<br>
+</td>
+        <td>getDouble()<br>
+</td>
+        <td>2<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>byte<br>
+</td>
+        <td>getByte()<br>
+</td>
+        <td>3<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>short<br>
+</td>
+        <td>getByte()<br>
+</td>
+        <td>4<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>int<br>
+</td>
+        <td>getInteger()<br>
+</td>
+        <td>5<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>long<br>
+</td>
+        <td>getLong()<br>
+</td>
+        <td>6<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>float<br>
+</td>
+        <td>getFloat()<br>
+</td>
+        <td>7<br>
+</td>
+        <td>numeric<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>date<br>
+</td>
+        <td>getDate()<br>
+</td>
+        <td>8<br>
+</td>
+        <td>date<br>
+</td>
+        <td><br>
+</td>
+    </tr>
+    <tr>
+        <td>text<br>
+</td>
+        <td>getString()<br>
+</td>
+        <td>9<br>
+</td>
+        <td>string<br>
+</td>
+        <td>&gt;3.5.5<br>
+</td>
+    </tr>
+    <tr>
+        <td>time<br>
+</td>
+        <td>getTime()<br>
+</td>
+        <td>10<br>
+</td>
+        <td>string<br>
+</td>
+        <td>&gt;3.5.8<br>
+</td>
+    </tr>
+</tbody></table>
+
+<br>
+In the props file one lists now the type names that the database returns and what Java type it represents (via the identifier), e.g.:<br>
+<!-- ws:start:WikiTextCodeRule:0:
+&lt;pre class=&quot;ini&quot;&gt; CHAR=0&lt;br/&gt; VARCHAR=0&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.ini  {font-family:monospace;}
+.ini .imp {font-weight: bold; color: red;}
+.ini .co0 {color: #666666; font-style: italic;}
+.ini .sy0 {color: #000066; font-weight:bold;}
+.ini .st0 {color: #933;}
+.ini .re0 {color: #000066; font-weight:bold;}
+.ini .re1 {color: #000099;}
+.ini .re2 {color: #660066;}
+.ini span.xtra { display:block; }
+
+-->
+</style><pre class="ini"> <span class="re1">CHAR</span><span class="sy0">=</span><span class="re2">0</span>
+ <span class="re1">VARCHAR</span><span class="sy0">=</span><span class="re2">0</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:0 --><tt>CHAR</tt> and <tt>VARCHAR</tt> are both String types, hence they are interpreted as <em>String</em> (identifier 0)<br>
+<br>
+<strong>Note:</strong> in case database types have blanks, one needs to replace those blanks with an underscore, e.g., <tt>DOUBLE PRECISION</tt> must be listed like this:<br>
+<!-- ws:start:WikiTextCodeRule:1:
+&lt;pre class=&quot;ini&quot;&gt; DOUBLE_PRECISION=2&lt;/pre&gt;
+ -->
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.ini  {font-family:monospace;}
+.ini .imp {font-weight: bold; color: red;}
+.ini .co0 {color: #666666; font-style: italic;}
+.ini .sy0 {color: #000066; font-weight:bold;}
+.ini .st0 {color: #933;}
+.ini .re0 {color: #000066; font-weight:bold;}
+.ini .re1 {color: #000099;}
+.ini .re2 {color: #660066;}
+.ini span.xtra { display:block; }
+
+-->
+</style><pre class="ini"> <span class="re1">DOUBLE_PRECISION</span><span class="sy0">=</span><span class="re2">2</span></pre>
+
+<!-- ws:end:WikiTextCodeRule:1 --><br>
+<!-- ws:start:WikiTextHeadingRule:12:&lt;h1&gt; --><h1 id="toc5"><a name="See also"></a><!-- ws:end:WikiTextHeadingRule:12 --> See also </h1>
+<ul><li><a class="wiki_link" href="https://weka.wikispaces.com/Databases">Databases</a></li><li><a class="wiki_link" href="https://weka.wikispaces.com/Properties+file">Properties file</a></li></ul>
+  </div>
+
+<div id="pageEditor" class="editorWrapper editorLayer">
+  <iframe id="target_editor" name="target_editor" src="./weka - weka_experiment_DatabaseUtils.props_files/blank.html" style="width:0px;height:0px;border:0"></iframe>
+    <form action="https://weka.wikispaces.com/page/edit/weka_experiment_DatabaseUtils.props" method="post" class="editorForm" id="editorForm"><input type="hidden" name="wikispacesFormToken" value="60dc484ea97baf6aae4a0512d84bad43982abe07"><div class="jovise"><input type="text" class="form-control" name="wikispaces_user_id" value="user-1428639839"></div><div class="wsh"><input type="text" class="form-control" name="goto" autocomplete="off"></div><div class="movkp"><input type="text" class="form-control" name="mode" autocomplete="off"></div><div class="jowic"><input type="text" class="form-control" name="version" autocomplete="off"></div><div class="mimw"><input type="text" class="form-control" name="pageComments" autocomplete="off"></div><div class="movkp"><input type="text" class="form-control" name="saveAndContinue" autocomplete="off"></div><div class="wsh"><input type="text" class="form-control" name="comment" autocomplete="off"></div><div class="jowic"><input type="text" class="form-control" name="commentsDisabled" autocomplete="off"></div><div class="wsh"><input type="text" class="form-control" name="contentPresent" autocomplete="off"></div><div class="mimw"><input type="text" class="form-control" name="editorCleanup" autocomplete="off"></div><div class="mimw"><input type="text" class="form-control" name="WikispacesEditorContent" autocomplete="off"></div><input type="hidden" name="wikispacesASFormToken" value="3c2b6ff0bb1bf5d9c815f50bf97fd2e2b7b12540">
+    <input type="hidden" title="goto" name="37205efdf3186de803f7b0f2c6c3e7fe289f361a" value="">
+    <input type="hidden" title="mode" name="160fd11ced31b5bd179bab336799f97539b815f1" autocomplete="off" value="visual">
+    <input type="hidden" title="version" name="c6171dbd566eb21b6a1dfd6ac4fb47d39069ac34" autocomplete="off" value="82922251">
+    <input type="hidden" title="pageComments" name="5e4cbf5f75a3c07b732b974e2027924555cfd3e3" autocomplete="off" value="">
+    <input type="hidden" title="saveAndContinue" name="87a713639ec82776a8a9cf6664d91a5d5147ea45" value="0">
+    <input type="hidden" title="comment" name="4ca8494e06710ea460ae60d6ece1f7143dba4bde" value="">
+    <input type="hidden" title="commentsDisabled" name="6b9a151618ba9c8e7f9846c9089dff2e6c24d836" autocomplete="off" value="">
+    <input type="hidden" title="contentPresent" name="563c1b912d836aa150ebecb45524dccacb5aa723" autocomplete="off" value="">
+    <input type="hidden" title="editorCleanup" name="30ac4c44f0c5bb89d7d2d9270fac2fc3d45a6d20" autocomplete="off" value="">
+
+    <textarea id="wsMainEditor" title="content" class="noContentHide" name="09019f513939bca890a65a681068699949aab8b9" style="width: 100%; position: absolute; top: -50000px; left: -50000px;" autocomplete="off"></textarea>
+
+  <noscript>
+    &lt;h2&gt;Javascript Required&lt;/h2&gt;
+    &lt;p&gt;You need to enable Javascript in your browser to edit pages.&lt;/p&gt;
+  </noscript>
+
+  </form>
+  
+  
+  <div id="plainTextEditor" style="position:relative;display:none" class="editorLayer">
+    <textarea id="textEditor" class="autogrow" style="height: 444px; overflow: hidden;"></textarea>
+    <p style="clear:both;" align="right"><a href="https://help.wikispaces.com/help.wikitext" class="js-help-link" data-help="help.wikitext">help on how to format text</a></p>
+  </div>
+</div>
+
+
+
+
+  </div>
+  <div class="commentColumn WikispacesStream"><div class="WikispacesContent WikispacesBs3"><div class="commentList"></div></div></div>
+</div>
+
+  
+
+
+
+
+<script type="text/template" id="js-event-template">
+  <small>
+    <%- startDateShortFormat %>
+    <a href="<%- ws.common.pathFor('event', 'view', id) %>" class="WikispacesDialogLink">
+      <%- ws.common.truncate(title, 15) %>
+    </a>
+  </small>
+</script>
+
+<script type="text/template" id="js-reply-template">
+  <div class="tc-timeline-comment media">
+
+    <a class="pull-left userLink" href="<%- userCreated.url %>">
+      <img src="<%- userCreated.imageUrl %>" width="30" height="30" class="author-avatar" alt="" />
+    </a>
+    <div class="media-body" data-id="<%= id %>">
+      <% if (ws.context.user.canAdministerWiki) { %>
+        <i class="tc-delete-comment fa fa-trash-o contextual-command destroy-message ws-tip" title="Delete reply"></i>
+      <% } %>
+      <div class="tc-box-name-date">
+        <span class="tc-commenter"><a href="<%- userCreated.url %>"><%- userCreated.username %></a></span>
+        <% if (smartDate == '__live__') { %>
+        <abbr style="border-bottom-style: none;" class="timeago tc-comment-date" title="<%- (new Date(parseInt(dateCreated) * 1000)).toISOString() %>">
+          <%- (new Date(parseInt(dateCreated) * 1000)).toDateString() %>
+        </abbr>
+        <% } else { %>
+          <abbr style="border-bottom-style: none;" class="tc-comment-date"><%- smartDate %></abbr>
+        <% } %>
+      </div>
+      <% if (body) { %>
+      <p>
+        <%= body %>
+      </p>
+      <% } %>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="js-share-template">
+  <div class="tc-timeline-block tc-<%= ws.stream.typeToBlockType(sharedType) %>-block" <%= (ws.stream.hideTimeline ? 'style="padding-left: 0px;"' : '') %>>
+
+    <% if (!ws.stream.hideTimeline) { %>
+      <div class="tc-timeline-icon">
+        <i class="fa fa-<%= ws.stream.typeToIcon(sharedType) %>"></i>
+      </div>
+      <div class="tc-timeline-triangle-man"></div>
+    <% } %>
+
+    <div class="tc-timeline-box" data-id="<%= id %>">
+      <div class="media">
+        <a class="pull-left userLink" href="<%- userCreated.url %>">
+          <img src="<%- userCreated.imageUrl %>" width="48" height="48" class="author-avatar media-object" alt="" />
+        </a>
+
+        <div class="media-body">
+
+          <div class="tc-stream-dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <% if (ws.context.user.id) { %>
+              <li>
+                <a class="js-toggle-monitor" tabindex="-1" href="#">
+                  <i class="fa-fw fa fa-eye"></i>
+                  <span><%= monitored ? 'Start Monitoring' : 'Stop Monitoring' %></span>
+                </a>
+              </li>
+              <% } %>
+
+              <% if (ws.context.user.canAdministerWiki) { %>
+              <li>
+                <a class="js-toggle-lock" tabindex="-1" href="#">
+                  <i class="fa-fw fa fa-lock"></i>
+                  <span><%= locked ? 'Unlock Replies' : 'Lock Replies' %></span>
+                </a>
+              </li>
+              <% if (sharedType == 'discussion' || sharedType == 'comment' || sharedType == 'event') { %>
+              <li>
+                <a class="js-destroy-share" tabindex="-1" href="#">
+                  <i class="fa-fw fa fa-trash-o"></i>
+                  Delete <%= ws.stream.typeToName(sharedType) %>
+                </a>
+              </li>
+              <% } %>
+              <% } %>
+            </ul>
+          </div>
+
+          <div class="tc-timeline-box-header ws-reveal media-heading">
+              <h3 class="tc-box-title">
+              <% if (typeof adminLink !== 'undefined' && adminLink && ws.context.user.canAdministerWiki) { %>
+                <a href="<%- adminLink %>"><%- title %></a>
+              <% } else { %>
+                <%- title %>
+              <% } %>
+              <% if (typeof startDate !== 'undefined' && startDate) { %> - <%= startDateShortFormat %> <%= ws.stream.getYearFromStartDate(startDate) %><% } %>
+              </h3>
+              <div class="tc-box-name-date">
+                <% if (ws.context.instance.isTesClassroom) { %>
+                  <%- userCreated.username %>
+                <% } else { %>
+                  <a class="author-name" href="<%- userCreated.url %>"><%- userCreated.username %></a>
+                <% } %>
+                <% if (typeof recipients !== 'undefined' && recipients) { %>
+                  <i class="fa fa-angle-right"></i>
+                  <% if (typeof recipientsLink !== 'undefined') { %>
+                    <a href="<%- recipientsLink %>"><%- recipients %></a>
+                  <% } else { %>
+                    <span class="recipients"><%- recipients %></span>
+                  <% } %>
+                <% } %>
+                <% if (smartDate == '__live__') { %>
+                  <abbr style="border-bottom-style: none;" class="timeago tc-block-date" title="<%= (new Date(parseInt(dateCreated) * 1000)).toISOString() %>">
+                    <%= (new Date(parseInt(dateCreated) * 1000)).toDateString() %>
+                  </abbr>
+                <% } else { %>
+                  <abbr style="border-bottom-style: none;" class="tc-block-date"><%- smartDate %></abbr>
+                <% } %>
+              </div>
+          </div>
+
+          <div class="<%= sharedType == 'comment' && !orphaned && !ws.stream.noCollapse ? 'hidden ' : '' %>tc-block-content">
+            <div class="clearfix">
+              <% if (typeof rangeActions !== 'undefined') { %>
+                <div class="tc-range-actions">
+                  <% for(var i = 0; i < rangeActions.length; i++) { %>
+                  <%= ws.stream.rangeActionTemplate(rangeActions[i]) %>
+                  <% } %>
+                </div>
+              <% } %>
+              <% if (description) { %>
+                <p><%= description %></p>
+              <% } %>
+            </div>
+          </div>
+
+          <% if (replyPages.length > 0 && !(replyPages.length === 1 && replyPages[0].digests.length === 0)) { %>
+            <div class="tc-timeline-comments">
+            <% for (var i = 0; i < replyPages.length; i++) { %>
+              <% if (i == 0 && replyPages[i].more) { %>
+                <a href="#" class="tc-show-more" onclick="ws.stream.pageReplies(<%= id %>, <%= replyPages[i].page + 1 %>); return false">Show more replies (<%= replyPages[i].more %> hidden) </a>
+              <% } else { %>
+                <div></div>
+              <% } %>
+              <% for (var j = 0; j < replyPages[i].digests.length; j++) { %>
+                <%= ws.stream.replyTemplate(replyPages[i].digests[j]) %>
+              <% } %>
+            <% } %>
+            </div>
+          <% } %>
+
+          <% if ((ws.stream.userCanPostMessage && !locked) || ws.context.user.canAdministerWiki) { %>
+          <div class="tc-add-comment media <%= ws.stream.noCollapse ? 'add-active' : ''%>">
+            <img src="<%- ws.context.user.imageUrlPrefix %>lg.jpg" width="30" height="30" class="pull-left author-avatar" alt="" />
+            <div class="media-body">
+              <textarea name="reply" placeholder="Comment" class="form-control form-control-tc ws-reveal <%= !ws.stream.noCollapse ? 'ws-unrevealed' : ''%> reply" /></textarea>
+              <button type="button" class="btn-tc btn-info-tc btn-sm-tc add-reply">Post</button>
+            </div>
+          </div>
+          <% } %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="js-range-action-template">
+  <div>
+    <strong><%- name %></strong>
+    <% if (typeof(diffUrl) !== 'undefined') { %>
+      <a href="<%- diffUrl %>">
+    <% } %>
+    <%= new Date(dateCreated * 1000).toLocaleString() %>
+    <% if (typeof(diffUrl) !== 'undefined') { %>
+      </a>
+    <% } %>
+    <% if (typeof(rangeText) !== 'undefined') { %>
+      <div>
+        <span class="commentExtent">
+        <% if (typeof(diffUrl) !== 'undefined') { %>
+          <a href="<%- diffUrl %>">
+        <% } %>
+        <%= rangeText %>
+        <% if (typeof(diffUrl) !== 'undefined') { %>
+          </a>
+        <% } %>
+        </span>
+      </div>
+    <% } %>
+  </div>
+</script>
+
+<script type="text/template" id="js-stream-end-template">
+  <div class="tc-timeline-block tc-end-block">
+    <div class="tc-timeline-icon" style="margin-top: -10px;" />
+    <div class="tc-timeline-box" style="visibility: hidden;">
+      <p class="tc-box-title"></p>
+    </div>
+  </div>
+</script>
+
+<a name="discussion"></a>
+<div class="timeline WikispacesBs3 tc-timeline-embedded show-border">
+  <div class="timeline-line"></div>
+    <div id="js-share-list">
+    <div class="spinner hidden"><i class="fa fa-spinner fa-spin"></i></div>
+  </div>
+</div></div></div><div id="sentinel" style="clear:both"></div>        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<footer class="ws-theme-footer" role="contentinfo">
+  <div class="ws-theme-container">
+    <div class="ws-theme-footer-inner">
+      <div class="WikiFooterNav WikiElement">
+<a href="https://help.wikispaces.com/" rel="nofollow" class="js-help-trigger">Help</a> ·
+<a href="https://www.wikispaces.com/about">About</a> ·
+<a href="http://blog.wikispaces.com/" target="_new">Blog</a> ·
+<a href="https://www.wikispaces.com/content/pricing" rel="nofollow">Pricing</a> ·
+<a href="https://www.wikispaces.com/privacy" rel="nofollow">Privacy</a> ·
+<a href="https://www.wikispaces.com/terms" rel="nofollow">Terms</a> ·
+<a href="https://www.wikispaces.com/site/help?url=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props" rel="nofollow"><strong>Support</strong></a> ·
+<a href="https://weka.wikispaces.com/space/subscribe/upgrade"><strong>Upgrade</strong></a>
+</div>      <div class="WikiLicense WikiElement">Contributions to https://weka.wikispaces.com/ are licensed under a <a rel="license" href="http://www.creativecommons.org/licenses/by-sa/3.0">Creative Commons Attribution Share-Alike 3.0 License</a>. <a rel="license" href="http://www.creativecommons.org/licenses/by-sa/3.0"><img src="./weka - weka_experiment_DatabaseUtils.props_files/by-sa_3.0_80x15.png" width="85" height="15" alt="Creative Commons Attribution Share-Alike 3.0 License"></a><br>Portions not contributed by visitors are Copyright 2015 Tangient LLC</div>    </div>
+  </div>
+</footer>
+
+
+<script type="text/template" id="dialog-template">
+<div class="modal fade" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title"><%= header %></h4>
+      </div>
+      <div class="modal-body">
+        <%= body %>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+
+<div id="js-help-template" class="hidden">
+  <div class="ws-help">
+    <div class="js-help-controls WikispacesContent WikispacesBs3">
+      <a href="https://www.wikispaces.com/site/gettingstarted/off" class="btn btn-default hidden js-getting-started-off pull-right">Turn off "Getting Started"</a>
+      <ol class="breadcrumb">
+        <li class="js-special-breadcrumb active">
+          <a href="https://help.wikispaces.com/" data-breadcrumb="0">Home</a>
+        </li>
+        <li class="js-ellipsis hidden js-special-breadcrumb">
+          ...
+        </li>
+        <li class="js-spinner hidden js-special-breadcrumb"><i class="fa fa-spinner fa-spin"></i></li>
+      </ol>
+    </div>
+    <div class="ws-help-content wiki">Loading...</div>
+  </div>
+</div>
+</div>
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/5499v5j2-common.min.js" type="text/javascript"></script>
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/vkz515xz-editorc.min.js" type="text/javascript"></script>
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/85k7018k-stream.min.js" type="text/javascript"></script>
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/91k8z207-contentbar.min.js" type="text/javascript"></script>
+<script src="./weka - weka_experiment_DatabaseUtils.props_files/395j1vq7-component.stream-vo.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+ws.namespace('ws.attributes');
+ws.namespace('ws.stream');
+ws.attributes.DISCUSSION_COUNT = 0;
+ws.attributes.pageId = 23728683;
+ws.attributes.version = 82922251;
+ws.attributes.showEditor = true;
+ws.attributes.editUrl = "https:\/\/weka.wikispaces.com\/page\/edit\/weka_experiment_DatabaseUtils.props?goto=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props";
+ws.attributes.userCanEdit = false;
+ws.stream.userCanPostMessage = false;
+ws.stream.hideTimeline = true;
+ws.stream.shareSource = "https:\/\/weka.wikispaces.com\/page\/shares\/weka_experiment_DatabaseUtils.props";
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+jQuery(document).ready(function() {
+  ws.common.addJsonNotices({"warning":[],"error":[],"info":[],"success":[]});
+});
+
+jQuery(document).ready(function($) {
+  
+  function tipPlacement() {
+    return this.$element.closest('.ws-menu-bar .btn-group').is('.open') ? 'top' : 'bottom';
+  }
+
+  
+
+  $('.ws-menu-bar').each(function() {
+    var $menuBar = $(this);
+    var $tagDropdown = $menuBar.find('.ws-tag-dropdown-menu');
+    $menuBar.find('.tipme').tooltip({placement: tipPlacement, container: '.ws-menu-bar'});
+
+    
+    $menuBar.find('.ws-btn-more').click(ws.common.makeLinkClickFunction(function(e) {
+      if ($(this).closest('.ws-menu-bar .btn-group').is('.open')) {
+        ws.common.hideMorePageBar();
+      } else {
+        ws.common.showMorePageBar();
+      }
+    }));
+
+    $menuBar.on('click', '.ws-tag-dropdown-toggle', ws.common.makeLinkClickFunction(function(e) {
+      if ($(this).closest('.ws-menu-bar .dropdown').is('.open')) {
+        ws.common.hideTagDropdown();
+      } else {
+        ws.common.showTagDropdown();
+      }
+    }));
+
+    $(document.body).click(function(e) {
+      var $target = $(e.target);
+      if (!$target.closest('.ws-more-menu').closest('.ws-menu-bar').is($menuBar)
+          || $target.closest('a').is('.WikispacesDialogLink')) {
+        ws.common.hideMorePageBar();
+      }
+      if ($tagDropdown.length && !$target.closest('.ws-tag-dropdown-menu').is($tagDropdown)) {
+        ws.common.hideTagDropdown();
+      }
+    });
+    
+  });
+});
+
+
+jQuery(document).ready(function($) {
+  $('.ws-more-menu').on('click', 'a', function(e) {
+    if ($(this).is('.disabled')) {
+      e.preventDefault();
+    }
+  });
+});
+
+
+jQuery(document).ready(function() {
+  ws.editor.canEdit = false;
+  var editUrl = 'https://weka.wikispaces.com/page/edit/weka_experiment_DatabaseUtils.props?goto=https%3A%2F%2Fweka.wikispaces.com%2Fweka_experiment_DatabaseUtils.props';
+
+  jQuery('#js-edit-from-template').change(function() {
+    window.location = ws.common.addUriParams(editUrl, [['template', jQuery(this).val()]]);
+  });
+});
+
+
+jQuery(document).ready(function() {
+  ws.editor.loadEditorLibs('https://www.wikispaces.com/site/editorlibs/en_US/07z93j80.gz.js');
+});
+
+
+ws.editor.startEditor = function (moreCoreOptions, moreMainOptions) {
+  ws.editor.canEdit = true;
+
+  var coreOptions = {
+    'content_css': ['https://www.wikispaces.com/stylesheet/editori/217420326D.gz.css']
+  };
+
+  // The stylesheet is passed in as a string, turn it into an array
+  // Add bootstrap styles to the editor, if we are in a theme that has full screen bootstrap
+  if (jQuery('body').is('.WikispacesBs3')) {
+    coreOptions.content_css.push('https://www.wikispaces.com//s/internal-bootstrap-body.css');
+  }
+
+  var mainOptions = {
+    'wssave_cancel_url': '/weka_experiment_DatabaseUtils.props',
+    'wsimage_upload_url': 'https://weka.wikispaces.com/file/multiupload',
+    'wsimage_max_file_size_mb': '50',
+    'wsimage_page_view_group': ''
+  };
+
+  ws.editor.loadEditor(jQuery.extend(coreOptions, moreCoreOptions), jQuery.extend(mainOptions, moreMainOptions));
+};
+
+  var wikispaces_page_version = '82922251';
+
+  jQuery(document).ready(function() {
+    ws.editor.enableButtons();
+  });
+
+
+
+--></script><!-- w20 138 mem:3:29(34) wki:2:4(2) dql:1:1(2) tot:138:138(1) -->
+
+
+<div class="autogrow-shadow" style="position: absolute; top: -10000px; left: -10000px; font-size: 14px; font-family: arial, helvetica, sans-serif; font-weight: 400; line-height: 20px; resize: none; width: 96px;"></div></body><iframe allowtransparency="true" frameborder="0" id="abs-top-frame" src="./weka - weka_experiment_DatabaseUtils.props_files/top.html" style="position: fixed; z-index: 4294967295; overflow: hidden; top: 0px; left: 0px; right: 0px; width: 138px; height: 13px; max-height: none; min-height: 0px; margin: 0px auto; padding: 0px; border: 0px; display: block; background-color: transparent;"></iframe></html>
