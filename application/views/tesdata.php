@@ -2,7 +2,7 @@
     
     
     <h2 class="art-title" style="margin-bottom:40px">-</h2>
-
+	<?php echo $error;?>
     <div class="art-body">
         <div class="art-body-inner">
             <h2>Pengetesan Data Uji</h2>

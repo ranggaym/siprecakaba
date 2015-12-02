@@ -17,11 +17,18 @@ class IsiDataset extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper(array('form', 'url'));
+	}
+	
 	public function index()
 	{
 		// load halaman
 		$this->load->view('header');
-		$this->load->view('isidataset');
+		$this->load->view('isidataset', array('error' => ' ', 'notif' => ''));
 		$this->load->view('footer');
 	}
 }

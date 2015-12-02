@@ -18,7 +18,13 @@ class TesData extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	 
-	 
+	
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper(array('form', 'url'));
+	}
+	
 	public function uploading()
 	{
 		$config['allowed_types'] = 'csv';
