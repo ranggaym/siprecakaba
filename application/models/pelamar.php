@@ -13,28 +13,21 @@ class Pelamar extends CI_Model {
 		$this->db->insert('pelamar', $data); 
 	}
 	
-	function insert_from_csv($csv)
+	function insert_from_array($csv)
 	{
 		$this->db->truncate('pelamar'); 
-	
-		$first_row = true;
-
 		
-		$while(($data = fgetcsv($csv, 1000, ",")) !== FALSE) {
-			if($first_row)
-				$first_row = false;
-			else {
-				$columns = array(
-					'ipk' => $csv[0],
-					'psi' => $csv[1],
-					'ww' => $csv[2],
-					'class' => $csv[3]
-				);
-				$this->db->insert('pelamar', $columns);
-			}
+		foreach($csv as $item)
+		{
+			$columns = array(
+				'no' => $item['no'],
+				'ipk' => $item['ipk'],
+				'psi' => $item['psi'],
+				'ww' => $item['ww'],
+				'class' => $item['class']
+			);
+			$this->db->insert('pelamar', $columns);
 		}
-		
-		fclose($csv);
 	}
 	
 	function update($data)

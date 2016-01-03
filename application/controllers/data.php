@@ -22,31 +22,38 @@ class Data extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('file', 'url'));
+		$this->load->helper(array('file', 'url', 'security'));
 	}
 	
 	
 	public function isi_dataset()
 	{
 		$config['allowed_types'] = 'csv';
+		$config['upload_path'] = '.';
+		$config['overwrite'] = TRUE;
 		$this->load->library('upload', $config);
 		
 		if ( ! $this->upload->do_upload())
 		{
 			$error = array('error' => $this->upload->display_errors(), 'notif' => ' ');
+			
+			$this->load->view('header');
 			$this->load->view('isidataset', $error);
+			$this->load->view('footer');
 		}
 		else
 		{
 			$this->load->model('pelamar');
 		
-			$file_name = $this->upload->data()['file_name'];
-			$csv_file = read_file($file_name);
-			
-			$this->pelamar->insert_from_csv($csv_file);
+			$file_name = sanitize_filename($this->upload->data()['file_name']);
+			$arrayed_csv = $this->csv_to_array($file_name);
+			$this->pelamar->insert_from_array($arrayed_csv);
 			
 			$notif = 'Upload dataset berhasil';
+			
+			$this->load->view('header');
 			$this->load->view('isidataset', array('error' => ' ', 'notif' => $notif));
+			$this->load->view('footer');
 		}
 	}
 	
@@ -55,10 +62,10 @@ class Data extends CI_Controller {
 	{
 		$this->load->model('pelamar');
 	
-		$output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l model2.model -T testset.arff');
+		//$output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l model2.model -T testset.arff');
 		
 		// suppressed
-		// $output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l model2.model -T testset.arff');
+		$output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l model2.model -T testset.arff');
 		// *nix only
 		// |tail -n+6 |head -n -1
 		// #note: |tail -n+6  <-- removes the header of file
@@ -92,7 +99,7 @@ class Data extends CI_Controller {
 			{
 				if(!$header)
 					$header = $row;
-				elseif (sizeof($header) = sizeof($row))
+				elseif($header && (count($header)==count($row)))
 					$data[] = array_combine($header, $row);
 			}
 			fclose($handle);

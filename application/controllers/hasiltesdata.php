@@ -34,7 +34,7 @@ class HasilTesData extends CI_Controller {
 			{
 				if(!$header)
 					$header = $row;
-				else
+				elseif($header && (count($header)==count($row)))
 					$data[] = array_combine($header, $row);
 			}
 			fclose($handle);

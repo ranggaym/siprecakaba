@@ -20,7 +20,7 @@
 <div class="wrapper">
 
 <nav class="nav">
-    <a style="border:none;" id="logo" href="index.php"><h1>SIPRECAKABA</h1></a>
-    <a style="border:none;" id="logo" href="index.php"><h5>Sistem Prediksi Calon Karyawan Baru</h5></a>
+    <a style="border:none;" id="logo" href="<?php echo site_url();?>"><h1>SIPRECAKABA</h1></a>
+    <a style="border:none;" id="logo" href="<?php echo site_url();?>"><h5>Sistem Prediksi Calon Karyawan Baru</h5></a>
     
 </nav>

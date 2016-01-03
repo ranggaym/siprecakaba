@@ -32,11 +32,17 @@ class Test extends CI_Controller {
 		echo "<pre>$output</pre>";
 		echo "<br>";
 		
-		$csv = $this->csv_to_array('testresult.csv');//array_map('str_getcsv', file('input_test.csv'));
-		//unset($csv[sizeof($csv)-1]);
-		print_r ($csv);
+		
+		
+		$this->load->model('prediksi');
+		
+		$arrayed_csv = $this->csv_to_array('testresult.csv');//array_map('str_getcsv', file('input_test.csv'));
+		// unset($arrayed_csv[sizeof($arrayed_csv)-1]);
+		print_r ($arrayed_csv);
 		echo "<br>";
-		//print_r ($csv[0]['class']);
+		print_r ($arrayed_csv[0]['actual']);
+		
+		$this->prediksi->insert_from_array($arrayed_csv);
 	}
 	
 	
@@ -55,21 +61,24 @@ class Test extends CI_Controller {
 		{
 			while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE)
 			{
+				// echo count($header) . "-h <br>";
+				// echo count($row) . "-r <br>";
 				if(!$header)
 					$header = $row;
-				else
+				elseif($header && (count($header)==count($row)))
 					$data[] = array_combine($header, $row);
 			}
+			
 			fclose($handle);
 		}
 		return $data;
 	}
-	
+	// (count($header)==count($row))
 	
 	
 	
 	
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file test.php */
+/* Location: ./application/controllers/test.php */
