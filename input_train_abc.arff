@@ -1,0 +1,24 @@
+@relation input_train
+
+@attribute no numeric
+@attribute ipk {a,b,c}
+@attribute psi {a,b,c}
+@attribute ww {a,b,c,d}
+@attribute class {ya,tidak}
+
+@data
+
+1,a,a,a,ya
+2,a,a,b,ya
+3,a,b,c,ya
+4,a,c,c,tidak
+5,b,a,a,ya
+6,b,b,c,ya
+7,b,b,b,ya
+8,b,c,d,ya
+9,b,c,c,tidak
+10,c,a,a,ya
+11,c,a,b,tidak
+12,c,b,a,tidak
+13,c,b,d,tidak
+14,c,c,b,tidak

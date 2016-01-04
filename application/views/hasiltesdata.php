@@ -9,6 +9,8 @@
 
             <div id="contact-area">
                 <!-- nanti di sini diisi tabel yang digenerate secara dinamis dari controller yang bertanggung jawab atas pengetesan data uji -->
+				<?php echo $table; ?> <br/>
+				
             </div>
         </div>
     </div>

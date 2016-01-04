@@ -1,0 +1,15 @@
+@relation pelamar
+
+@attribute ipk {bagus,cukup,kurang}
+@attribute psi {tinggi,sedang,rendah}
+@attribute ww {sburuk,buruk,baik,sbaik}
+@attribute class {ya,tidak}
+
+@data
+bagus,tinggi,buruk,?
+bagus,rendah,baik,?
+cukup,tinggi,buruk,?
+cukup,rendah,baik,?
+kurang,tinggi,buruk,?
+kurang,sedang,baik,?
+kurang,rendah,buruk,?

@@ -20,6 +20,7 @@ class Test extends CI_Controller {
 	public function index()
 	{
 		$output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l model2.model -T testset.arff');
+		$output2 = shell_exec('java weka.classifiers.functions.Logistic -classifications -l model2.model -T testset.arff -no-predictions');
 		
 		// suppressed
 		// $output = shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l model2.model -T testset.arff');
@@ -30,17 +31,50 @@ class Test extends CI_Controller {
 		
 		
 		echo "<pre>$output</pre>";
+		echo "<pre>$output2</pre>";
 		echo "<br>";
+
+
+		$f1 = fopen('input_train.arff', 'r');
+		$lineNo = 0;
+		$text = "";
+		$startLine = 1;
+		$endLine = 7;
+		while ($line = fgets($f1)) {
+			$lineNo++;
+			if ($lineNo >= $startLine)
+				$text .= $line;
+			if ($lineNo == $endLine)
+				break;
+		}
+		fclose($f1);
+		
+		$f2 = fopen('input_test_xxxx.arff', 'r');
+		$lineNo = 0;
+		$startLine = 8;
+		while ($line = fgets($f2)) {
+			$lineNo++;
+			if ($lineNo >= $startLine)
+				$text .= $line;
+			if ($line === FALSE)
+				break;
+		}
+		fclose($f2);
 		
 		
+		echo "<pre>$text</pre>";
+		
+		$fw = fopen('input_test_xxxx.arff', 'w');
+		fwrite($fw, $text);
+		fclose($fw);
 		
 		$this->load->model('prediksi');
 		
 		$arrayed_csv = $this->csv_to_array('testresult.csv');//array_map('str_getcsv', file('input_test.csv'));
 		// unset($arrayed_csv[sizeof($arrayed_csv)-1]);
-		print_r ($arrayed_csv);
+		//print_r ($arrayed_csv);
 		echo "<br>";
-		print_r ($arrayed_csv[0]['actual']);
+		//print_r ($arrayed_csv[0]['actual']);
 		
 		$this->prediksi->insert_from_array($arrayed_csv);
 	}

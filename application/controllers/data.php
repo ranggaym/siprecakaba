@@ -26,14 +26,15 @@ class Data extends CI_Controller {
 	}
 	
 	
-	public function isi_dataset()
+	// Pengisian dataset
+	public function isi_dataset($latih = null)
 	{
 		$config['allowed_types'] = 'csv';
 		$config['upload_path'] = '.';
 		$config['overwrite'] = TRUE;
 		$this->load->library('upload', $config);
 		
-		if ( ! $this->upload->do_upload())
+		if ( ! $this->upload->do_upload()) // upload gagal
 		{
 			$error = array('error' => $this->upload->display_errors(), 'notif' => ' ');
 			
@@ -41,15 +42,47 @@ class Data extends CI_Controller {
 			$this->load->view('isidataset', $error);
 			$this->load->view('footer');
 		}
-		else
+		else // upload berhasil
 		{
 			$this->load->model('pelamar');
 		
+			// Pengamanan filename
 			$file_name = sanitize_filename($this->upload->data()['file_name']);
+			$raw_name = sanitize_filename($this->upload->data()['raw_name']);
+			
+			// Memasukkan CSV ke DB
 			$arrayed_csv = $this->csv_to_array($file_name);
 			$this->pelamar->insert_from_array($arrayed_csv);
 			
-			$notif = 'Upload dataset berhasil';
+			
+			// Membuat model dengan melatih dataset dari CSV
+			if($latih==='1')
+			{
+				shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
+				shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+			}
+			
+			$f = fopen($raw_name.'.arff', 'r');
+			$lineNo = 0;
+			$text = "";
+			$startLine = 1;
+			$endLine = 7;
+			while ($line = fgets($f)) {
+				$lineNo++;
+				if ($lineNo >= $startLine) {
+					$text .= $line;
+				}
+				if ($lineNo == $endLine) {
+					break;
+				}
+			}
+			fclose($f);
+			
+			$fw = fopen('MasterHeader.arff', 'w');
+			fwrite($fw, $text);
+			fclose($fw);
+			
+			$notif = 'Upload dan latih dataset berhasil';
 			
 			$this->load->view('header');
 			$this->load->view('isidataset', array('error' => ' ', 'notif' => $notif));

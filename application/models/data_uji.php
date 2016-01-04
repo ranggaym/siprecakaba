@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pelamar extends CI_Model {
+class Data_uji extends CI_Model {
 
 	function __construct()
     {
@@ -10,12 +10,12 @@ class Pelamar extends CI_Model {
 	
 	function insert($data)
 	{
-		$this->db->insert('pelamar', $data); 
+		$this->db->insert('data_uji', $data); 
 	}
 	
 	function insert_from_array($arr)
 	{
-		$this->db->truncate('pelamar'); 
+		$this->db->truncate('data_uji'); 
 		
 		foreach($arr as $item)
 		{
@@ -26,20 +26,30 @@ class Pelamar extends CI_Model {
 				'ww' => $item['ww'],
 				'class' => $item['class']
 			);
-			$this->db->insert('pelamar', $columns);
+			$this->db->insert('data_uji', $columns);
 		}
 	}
 	
 	function update($data)
 	{
-		$this->db->update('pelamar', $data); 
+		$this->db->update('data_uji', $data); 
 	}
 	
 	function get_classes_only()
 	{
 		$this->db->select('class');
-		$query = $this->db->get('pelamar');
+		$query = $this->db->get('data_uji');
 		return $query->result();
+	}
+	
+	function get_predicted_class()
+	{
+		$this->db->select('no,ipk,psi,ww,predicted,prediction');
+		$this->db->from('data_uji,prediksi');
+		$this->db->where('prediksi.inst = data_uji.no');
+		
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 }

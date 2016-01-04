@@ -1,0 +1,59 @@
+@relation pelamar
+
+@attribute no numeric
+@attribute ipk {a,b,c}
+@attribute psi {a,b,c}
+@attribute ww {a,b,c,d}
+@attribute class {ya,tidak}
+
+@data
+1,b,b,d,ya
+2,c,b,d,ya
+3,c,a,c,tidak
+4,c,b,c,tidak
+5,b,b,c,tidak
+6,a,c,a,tidak
+7,b,a,a,tidak
+8,c,b,d,ya
+9,a,b,a,tidak
+10,a,c,a,tidak
+11,c,c,d,ya
+12,c,c,d,ya
+13,a,c,b,ya
+14,c,b,d,ya
+15,c,a,c,tidak
+16,b,a,a,tidak
+17,a,c,c,tidak
+18,a,b,b,ya
+19,a,a,a,tidak
+20,a,b,a,tidak
+21,c,c,b,ya
+22,b,a,c,tidak
+23,c,a,c,tidak
+24,b,c,a,tidak
+25,c,b,b,ya
+26,b,c,a,tidak
+27,a,b,c,tidak
+28,a,b,a,tidak
+29,b,a,d,ya
+30,b,c,d,ya
+31,b,a,b,ya
+32,c,c,a,tidak
+33,a,a,a,tidak
+34,b,a,b,ya
+35,a,b,c,tidak
+36,a,a,b,ya
+37,a,b,d,ya
+38,a,c,c,tidak
+39,a,c,c,tidak
+40,a,c,b,ya
+41,b,c,a,tidak
+42,b,a,d,ya
+43,b,a,c,tidak
+44,c,c,d,ya
+45,c,b,b,ya
+46,a,b,d,ya
+47,a,b,c,tidak
+48,b,c,a,tidak
+49,c,b,c,tidak
+50,c,c,c,tidak

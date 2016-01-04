@@ -1,0 +1,7 @@
+@relation input_train
+
+@attribute no numeric
+@attribute ipk {bagus,cukup,kurang}
+@attribute psi {tinggi,sedang,rendah}
+@attribute ww {sbaik,sburuk,buruk,baik}
+@attribute class {ya,tidak}

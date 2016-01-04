@@ -13,14 +13,13 @@ class Prediksi extends CI_Model {
 		$this->db->insert('prediksi', $data); 
 	}
 	
-	function insert_from_array($csv)
+	function insert_from_array($arr)
 	{
 		$this->db->truncate('prediksi'); 
-		print_r($csv);
-		foreach($csv as $item)
+		foreach($arr as $item)
 		{
 			$columns = array(
-				'inst#' => $item['inst#'],
+				'inst' => $item['inst#'],
 				'actual' => $item['actual'],
 				'predicted' => $item['predicted'],
 				'error' => $item['error'],
@@ -40,6 +39,38 @@ class Prediksi extends CI_Model {
 		$this->db->select('predicted');
 		$query = $this->db->get('prediksi');
 		return $query->result();
+	}
+	
+	function get_true_p()
+	{
+		$this->db->select('actual','predicted');
+		$this->db->from('prediksi');
+		$this->db->where('actual = predicted AND predicted = "1:ya" AND actual != "1:?"');
+		return $this->db->count_all_results();
+	}
+	
+	function get_true_n()
+	{
+		$this->db->select('actual','predicted');
+		$this->db->from('prediksi');
+		$this->db->where('actual = predicted AND predicted = "2:tidak" AND actual != "1:?"');
+		return $this->db->count_all_results();
+	}
+	
+	function get_false_p()
+	{
+		$this->db->select('actual','predicted');
+		$this->db->from('prediksi');
+		$this->db->where('actual != predicted AND predicted = "1:ya" AND actual != "1:?"');
+		return $this->db->count_all_results();
+	}
+	
+	function get_false_n()
+	{
+		$this->db->select('actual','predicted');
+		$this->db->from('prediksi');
+		$this->db->where('actual != predicted AND predicted = "2:tidak" AND actual != "1:?"');
+		return $this->db->count_all_results();
 	}
 
 }

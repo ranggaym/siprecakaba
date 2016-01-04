@@ -9,7 +9,7 @@
             <h2>Pengisian Dataset Latih</h2>
 
             <div id="contact-area">
-                <?php echo form_open_multipart(site_url('data/isi_dataset'));?>
+                <?php echo form_open_multipart(site_url('data/isi_dataset/1'));?>
                     <label for="berkas">Berkas:</label>
                     <input type="file" name="userfile" id="userfile">
 
