@@ -34,41 +34,16 @@ class Test extends CI_Controller {
 		echo "<pre>$output2</pre>";
 		echo "<br>";
 
-
-		$f1 = fopen('input_train.arff', 'r');
-		$lineNo = 0;
-		$text = "";
-		$startLine = 1;
-		$endLine = 7;
-		while ($line = fgets($f1)) {
-			$lineNo++;
-			if ($lineNo >= $startLine)
-				$text .= $line;
-			if ($lineNo == $endLine)
-				break;
-		}
-		fclose($f1);
 		
-		$f2 = fopen('input_test_xxxx.arff', 'r');
-		$lineNo = 0;
-		$startLine = 8;
-		while ($line = fgets($f2)) {
-			$lineNo++;
-			if ($lineNo >= $startLine)
-				$text .= $line;
-			if ($line === FALSE)
-				break;
-		}
-		fclose($f2);
+		$this->load->model('data_uji');
+		
+		$raw_name = 'test_from_db';
+		$this->data_uji->dump_to_csv($raw_name.'.csv');
+		// ubah CSV ke ARFF lalu lakukan prediksi
+		shell_exec('java weka.core.converters.CSVLoader '.$raw_name.'.csv > '.$raw_name.'.arff');
 		
 		
-		echo "<pre>$text</pre>";
 		
-		$fw = fopen('input_test_xxxx.arff', 'w');
-		fwrite($fw, $text);
-		fclose($fw);
-		
-		$this->load->model('prediksi');
 		
 		$arrayed_csv = $this->csv_to_array('testresult.csv');//array_map('str_getcsv', file('input_test.csv'));
 		// unset($arrayed_csv[sizeof($arrayed_csv)-1]);
@@ -76,6 +51,7 @@ class Test extends CI_Controller {
 		echo "<br>";
 		//print_r ($arrayed_csv[0]['actual']);
 		
+		$this->load->model('prediksi');
 		$this->prediksi->insert_from_array($arrayed_csv);
 	}
 	

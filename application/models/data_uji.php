@@ -51,5 +51,28 @@ class Data_uji extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	
+	function dump_to_csv($file_name)
+	{
+		$this->load->dbutil();
+		$this->load->helper('file');
+		$delimiter = ",";
+		$newline = "\r\n";
+		
+		$this->db->select();
+		$query = $this->db->get('data_uji');
+		
+		$csv_data = $this->dbutil->csv_from_result($query,$delimiter,$newline);
+
+		$csv_data = str_replace($delimiter.$newline,$newline,$csv_data);
+		$csv_data = str_replace('"','',$csv_data);
+
+		if(!write_file($file_name,$csv_data))
+		{
+			show_error('Write file error');
+			$this->output->set_header('refresh:3; url='.site_url());
+		}
+		
+	}
 
 }

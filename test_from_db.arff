@@ -1,0 +1,17 @@
+@relation test_from_db
+
+@attribute no numeric
+@attribute ipk {bagus,cukup,kurang}
+@attribute psi {tinggi,rendah,sedang}
+@attribute ww {buruk,baik}
+@attribute class {tidak,ya}
+
+@data
+
+1,bagus,tinggi,buruk,tidak
+2,bagus,rendah,baik,ya
+3,cukup,tinggi,buruk,tidak
+4,cukup,rendah,baik,ya
+5,kurang,tinggi,buruk,tidak
+6,kurang,sedang,baik,ya
+7,kurang,rendah,buruk,tidak
