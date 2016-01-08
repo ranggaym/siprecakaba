@@ -7,8 +7,8 @@
         <div class="art-body-inner">
             <h2>Halaman Depan</h2>
 
-            <p><a href="<?php echo site_url('isidataset') ?>">Isi Dataset Latih</a></p>
-            <p><a href="<?php echo site_url('tesdata') ?>">Tes Data Uji</a></p>
+            <p><a href="<?php echo site_url('isidataset') ?>">Isi Data Latih</a></p>
+            <p><a href="<?php echo site_url('tesdata') ?>">Isi Data Uji</a></p>
             <p><a href="<?php echo site_url('tesdata/test_from_db') ?>">Tes Data Uji dari DB</a></p>
             <p><a href="<?php echo site_url('data/train_from_db') ?>">Buat Model dari DB</a></p>
         </div>

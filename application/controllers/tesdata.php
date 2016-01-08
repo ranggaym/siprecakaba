@@ -47,67 +47,69 @@ class TesData extends CI_Controller {
 			$this->load->model('prediksi');
 			$this->load->model('data_uji');
 			$this->load->library('table');
-			
+			$buatprediksi = $this->input->post('buatprediksi');
 			
 			// File sanitizing
 			$file_name = sanitize_filename($this->upload->data()['file_name']);
-			$raw_name = sanitize_filename($this->upload->data()['raw_name']);
-	
 			
 			// Memasukkan data uji dari CSV ke DB
 			$arrayed_csv = $this->csv_to_array($file_name);
 			$this->data_uji->insert_from_array($arrayed_csv);
-	
 			
 			// ubah CSV ke ARFF lalu lakukan prediksi
-			shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
-			
-			$f = fopen('MasterHeader.arff', 'r');
-			$lineNo = 0;
-			$text = "";
-			$startLine = 1;
-			$endLine = 7;
-			while ($line = fgets($f)) {
-				$lineNo++;
-				if ($lineNo >= $startLine) {
-					$text .= $line;
+			if($buatprediksi==='on')
+			{
+				$raw_name = sanitize_filename($this->upload->data()['raw_name']);
+				shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
+				
+				$f = fopen('MasterHeader.arff', 'r');
+				$lineNo = 0;
+				$text = "";
+				$startLine = 1;
+				$endLine = 7;
+				while ($line = fgets($f)) {
+					$lineNo++;
+					if ($lineNo >= $startLine) {
+						$text .= $line;
+					}
+					if ($lineNo == $endLine) {
+						break;
+					}
 				}
-				if ($lineNo == $endLine) {
-					break;
+				fclose($f);
+				
+				$f2 = fopen($raw_name.'.arff', 'r');
+				$lineNo = 0;
+				$startLine = 8;
+				while ($line = fgets($f2)) {
+					$lineNo++;
+					if ($lineNo >= $startLine)
+						$text .= $line;
+					if ($line === FALSE)
+						break;
 				}
-			}
-			fclose($f);
-			
-			$f2 = fopen($raw_name.'.arff', 'r');
-			$lineNo = 0;
-			$startLine = 8;
-			while ($line = fgets($f2)) {
-				$lineNo++;
-				if ($lineNo >= $startLine)
-					$text .= $line;
-				if ($line === FALSE)
-					break;
-			}
-			fclose($f2);
-			
-			$fw = fopen($raw_name.'.arff', 'w');
-			fwrite($fw, $text);
-			fclose($fw);
-			
-			shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
-			
-			
-			// Memasukkan hasil prediksi ke DB
-			$arrayed_prediction = $this->csv_to_array('testresult.csv');
-			$this->prediksi->insert_from_array($arrayed_prediction);
-			
+				fclose($f2);
+				
+				$fw = fopen($raw_name.'.arff', 'w');
+				fwrite($fw, $text);
+				fclose($fw);
+				
+				shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
+				
+				
+				// Memasukkan hasil prediksi ke DB
+				$arrayed_prediction = $this->csv_to_array('testresult.csv');
+				$this->prediksi->insert_from_array($arrayed_prediction);
+				
 
-			// Membuat tabel
-			$tmpl = array ( 'table_open'  => '<table border="2" cellpadding="2" cellspacing="5" class="tabelhasil">' );
-			$this->table->set_template($tmpl); 
-			$this->table->set_heading('No','IPK','Hasil tes psi','Hasil wawancara','Prediksi kelas', 'Prob.');
-			$table = $this->table->generate($this->data_uji->get_predicted_class());
-			
+				// Membuat tabel
+				$tmpl = array ( 'table_open'  => '<table border="2" cellpadding="2" cellspacing="5" class="tabelhasil">' );
+				$this->table->set_template($tmpl); 
+				$this->table->set_heading('No','IPK','Hasil tes psi','Hasil wawancara','Prediksi kelas', 'Prob.');
+				$table = $this->table->generate($this->data_uji->get_predicted_class());
+			}
+			else
+				$table = 'Tidak ada hasil prediksi karena prediksi data uji tidak dilakukan.';
 			
 			$this->load->view('header');
 			$this->load->view('hasiltesdata', array('table' => $table));

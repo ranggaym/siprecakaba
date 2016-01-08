@@ -27,7 +27,7 @@ class Data extends CI_Controller {
 	
 	
 	// Pengisian dataset
-	public function isi_dataset($latih = null)
+	public function isi_dataset()
 	{
 		$config['allowed_types'] = 'csv';
 		$config['upload_path'] = '.';
@@ -45,6 +45,7 @@ class Data extends CI_Controller {
 		else // upload berhasil
 		{
 			$this->load->model('pelamar');
+			$buatmodel = $this->input->post('buatmodel');
 		
 			// Pengamanan filename
 			$file_name = sanitize_filename($this->upload->data()['file_name']);
@@ -56,11 +57,15 @@ class Data extends CI_Controller {
 			
 			
 			// Membuat model dengan melatih dataset dari CSV
-			if($latih==='1')
+			if($buatmodel==='on')
 			{
 				shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
 				shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+				
+				$notif = 'Upload data latih dan pembuatan model berhasil';
 			}
+			else
+				$notif = 'Upload data latih berhasil';
 			
 			$f = fopen($raw_name.'.arff', 'r');
 			$lineNo = 0;
@@ -82,7 +87,7 @@ class Data extends CI_Controller {
 			fwrite($fw, $text);
 			fclose($fw);
 			
-			$notif = 'Upload dan latih dataset berhasil';
+			
 			
 			$this->load->view('header');
 			$this->load->view('isidataset', array('error' => ' ', 'notif' => $notif));
@@ -121,7 +126,7 @@ class Data extends CI_Controller {
 		fwrite($fw, $text);
 		fclose($fw);
 		
-		$notif = 'Latih dataset dari DB berhasil';
+		$notif = 'Latih dataset dan pembuatan model dari DB berhasil';
 		
 		$this->load->view('header');
 		$this->load->view('isidataset', array('error' => ' ', 'notif' => $notif));
