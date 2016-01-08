@@ -62,7 +62,7 @@ class Data extends CI_Controller {
 				shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
 				shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
 				
-				$notif = 'Upload data latih dan pembuatan model berhasil';
+				$notif = 'Upload data latih dan pembuatan model prediksi berhasil';
 			}
 			else
 				$notif = 'Upload data latih berhasil';

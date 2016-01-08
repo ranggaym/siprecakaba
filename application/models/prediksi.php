@@ -21,7 +21,7 @@ class Prediksi extends CI_Model {
 			$columns = array(
 				'inst' => $item['inst#'],
 				'actual' => $item['actual'],
-				'predicted' => $item['predicted'],
+				'predicted' => substr($item['predicted'],2),
 				'error' => $item['error'],
 				'prediction' => $item['prediction']
 			);
@@ -45,7 +45,7 @@ class Prediksi extends CI_Model {
 	{
 		$this->db->select('actual','predicted');
 		$this->db->from('prediksi');
-		$this->db->where('actual = predicted AND predicted = "1:ya" AND actual != "1:?"');
+		$this->db->where('actual = predicted AND predicted = "ya" AND actual != "1:?"');
 		return $this->db->count_all_results();
 	}
 	
@@ -53,7 +53,7 @@ class Prediksi extends CI_Model {
 	{
 		$this->db->select('actual','predicted');
 		$this->db->from('prediksi');
-		$this->db->where('actual = predicted AND predicted = "2:tidak" AND actual != "1:?"');
+		$this->db->where('actual = predicted AND predicted = "tidak" AND actual != "1:?"');
 		return $this->db->count_all_results();
 	}
 	
@@ -61,7 +61,7 @@ class Prediksi extends CI_Model {
 	{
 		$this->db->select('actual','predicted');
 		$this->db->from('prediksi');
-		$this->db->where('actual != predicted AND predicted = "1:ya" AND actual != "1:?"');
+		$this->db->where('actual != predicted AND predicted = "ya" AND actual != "1:?"');
 		return $this->db->count_all_results();
 	}
 	
@@ -69,7 +69,7 @@ class Prediksi extends CI_Model {
 	{
 		$this->db->select('actual','predicted');
 		$this->db->from('prediksi');
-		$this->db->where('actual != predicted AND predicted = "2:tidak" AND actual != "1:?"');
+		$this->db->where('actual != predicted AND predicted = "tidak" AND actual != "1:?"');
 		return $this->db->count_all_results();
 	}
 

@@ -10,7 +10,7 @@
             <div id="contact-area">
                 <!-- nanti di sini diisi tabel yang digenerate secara dinamis dari controller yang bertanggung jawab atas pengetesan data uji -->
 				<?php echo $table; ?> <br/>
-				
+				<p><a href="<?php echo site_url() ?>">Kembali ke Halaman Depan</a></p>
             </div>
         </div>
     </div>

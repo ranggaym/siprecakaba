@@ -19,6 +19,7 @@
                     <input type="submit" name="submit" value="Simpan" class="submit-button">
                 </form>
             </div>
+			<p><a href="<?php echo site_url('tesdata') ?>">Isi Data Uji</a></p>
         </div>
     </div>
 

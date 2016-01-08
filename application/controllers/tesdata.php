@@ -57,6 +57,7 @@ class TesData extends CI_Controller {
 			$this->data_uji->insert_from_array($arrayed_csv);
 			
 			// ubah CSV ke ARFF lalu lakukan prediksi
+			// jika disuruh
 			if($buatprediksi==='on')
 			{
 				$raw_name = sanitize_filename($this->upload->data()['raw_name']);
@@ -109,7 +110,8 @@ class TesData extends CI_Controller {
 				$table = $this->table->generate($this->data_uji->get_predicted_class());
 			}
 			else
-				$table = 'Tidak ada hasil prediksi karena prediksi data uji tidak dilakukan.';
+				$table = '<p>Data uji sukses terupload. Tidak ada hasil prediksi karena prediksi data uji tidak dilakukan.</p>'.
+						'<p><a href="'.site_url('tesdata/test_from_db').'">Tes Data Uji dari DB</a></p>';
 			
 			$this->load->view('header');
 			$this->load->view('hasiltesdata', array('table' => $table));
