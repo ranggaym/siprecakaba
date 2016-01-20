@@ -72,7 +72,12 @@ class Data_uji extends CI_Model {
 			show_error('Write file error');
 			$this->output->set_header('refresh:3; url='.site_url());
 		}
-		
+	}
+	
+	function is_exists()
+	{
+		$this->db->select('no');
+		return ($this->db->count_all_results()>0);
 	}
 
 }

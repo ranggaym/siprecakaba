@@ -19,9 +19,15 @@ class Depan extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('pelamar');
+		$this->load->model('data_uji');
+	
+		$cekdatalatih = $this->pelamar->is_exists() ? '<p>Data latih sudah ada di DB</p>' : '<p>Data latih belum ada di DB. Silakan upload.</p>';
+		$cekdatauji = $this->data_uji->is_exists() ? '<p>Data uji sudah ada di DB</p>' : '<p>Data uji belum ada di DB. Silakan upload.</p>';
+	
 		// load halaman
 		$this->load->view('header');
-		$this->load->view('depan');
+		$this->load->view('depan', array('cekdatalatih'=>$cekdatalatih,'cekdatauji'=>$cekdatauji));
 		$this->load->view('footer');
 	}
 }
