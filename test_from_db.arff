@@ -1,10 +1,10 @@
-@relation input_train
+@relation test_from_db
 
 @attribute no numeric
 @attribute ipk {bagus,cukup,kurang}
-@attribute psi {tinggi,sedang,rendah}
-@attribute ww {sbaik,sburuk,buruk,baik}
-@attribute class {ya,tidak}
+@attribute psi {tinggi,rendah,sedang}
+@attribute ww {buruk,baik}
+@attribute class {tidak,ya}
 
 @data
 

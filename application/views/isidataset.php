@@ -9,7 +9,7 @@
 			<?php echo $error;?> <br>
 			<?php echo $notif;?>
             <div id="contact-area">
-                <?php echo form_open_multipart(site_url('data/isi_dataset'));?>
+                <?php echo form_open_multipart(site_url('data/uploading_train_data'));?>
                     <label for="berkas">Berkas:</label>
                     <input type="file" name="userfile" id="userfile">
 					<label for="berkas">Buat model</label>

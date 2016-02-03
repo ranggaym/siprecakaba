@@ -10,9 +10,9 @@
 			<?php echo $cekdatalatih; ?>
 			<?php echo $cekdatauji; ?>
 			
-            <p><a href="<?php echo site_url('isidataset') ?>">Isi Data Latih</a></p>
-            <p><a href="<?php echo site_url('tesdata') ?>">Isi Data Uji</a></p>
-            <p><a href="<?php echo site_url('tesdata/test_from_db') ?>">Tes Data Uji dari DB</a></p>
+            <p><a href="<?php echo site_url('isidatalatih') ?>">Isi Data Latih</a></p>
+            <p><a href="<?php echo site_url('isidatauji') ?>">Isi Data Uji</a></p>
+            <p><a href="<?php echo site_url('data/test_from_db') ?>">Tes Data Uji dari DB</a></p>
             <p><a href="<?php echo site_url('data/train_from_db') ?>">Buat Model dari DB</a></p>
 			
 			<p>Selamat datang di Siprecakaba. Siprecakaba merupakan sistem yang membantu menilai calon karyawan baru dengan melakukan prediksi nilai akhir setiap calon karyawan.</p>

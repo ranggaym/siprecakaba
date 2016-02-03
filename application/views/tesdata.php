@@ -8,7 +8,7 @@
             <h2>Pengetesan Data Uji</h2>
 			<?php echo $error;?>
             <div id="contact-area">
-                <?php echo form_open_multipart(site_url('tesdata/uploading'));?>
+                <?php echo form_open_multipart(site_url('data/uploading_test_data'));?>
                     <label for="berkas">Berkas:</label>
                     <input type="file" name="userfile" id="userfile">
 					<label for="berkas">Lakukan prediksi</label>
