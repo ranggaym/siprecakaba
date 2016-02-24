@@ -1,0 +1,12 @@
+java weka.classifiers.meta.FilteredClassifier -F "weka.filters.unsupervised.attribute.Remove -R 1"
+
+
+train with filter
+java weka.classifiers.meta.FilteredClassifier -t input_train.arff -d trainedmodel.model -F "weka.filters.unsupervised.attribute.Remove -R 1" -W weka.classifiers.functions.Logistic
+
+test with filter
+java weka.classifiers.meta.FilteredClassifier -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l trainedmodel.model -T input_test_v2.arff
+
+
+
+java weka.classifiers.meta.FilteredClassifier -no-predictions -l trainedmodel.model -T input_test_v2.arff

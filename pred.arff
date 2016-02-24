@@ -1,0 +1,32 @@
+@relation 'input_train-weka.filters.supervised.attribute.AddClassification-classification-remove-old-class-serializedC:\\xampp2\\htdocs\\siprecakaba_commit\\trainedmodel.model'
+
+@attribute no numeric
+@attribute ipk {bagus,cukup,kurang}
+@attribute psi {tinggi,sedang,rendah}
+@attribute ww {sbaik,sburuk,buruk,baik}
+@attribute classification {ya,tidak}
+
+@data
+
+1,bagus,tinggi,baik,ya
+2,bagus,tinggi,buruk,ya
+3,bagus,sedang,sbaik,ya
+4,bagus,sedang,baik,ya
+5,bagus,sedang,sburuk,ya
+6,bagus,rendah,sbaik,ya
+7,bagus,rendah,baik,ya
+8,bagus,rendah,sburuk,tidak
+9,cukup,tinggi,baik,ya
+10,cukup,tinggi,buruk,ya
+11,cukup,tinggi,sburuk,ya
+12,cukup,sedang,sbaik,ya
+13,cukup,sedang,baik,ya
+14,cukup,rendah,sbaik,ya
+15,cukup,rendah,sburuk,tidak
+16,kurang,tinggi,baik,ya
+17,kurang,tinggi,buruk,tidak
+18,kurang,sedang,buruk,tidak
+19,kurang,sedang,sburuk,tidak
+20,kurang,rendah,sbaik,tidak
+21,kurang,rendah,baik,tidak
+22,kurang,rendah,buruk,tidak

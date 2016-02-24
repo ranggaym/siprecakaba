@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class TesData extends CI_Controller {
+class IsiDatauji extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

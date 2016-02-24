@@ -60,7 +60,8 @@ class Data extends CI_Controller {
 			if($buatmodel==='on')
 			{
 				shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$file_name.' > '.$raw_name.'.arff');
-				shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+				//shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+				shell_exec('java weka.classifiers.meta.FilteredClassifier -t '.$raw_name.'.arff -d trainedmodel.model -F "weka.filters.unsupervised.attribute.Remove -R 1" -W weka.classifiers.functions.Logistic');
 				
 				$notif = 'Upload data latih dan pembuatan model prediksi berhasil';
 			}
@@ -104,7 +105,8 @@ class Data extends CI_Controller {
 		$this->pelamar->dump_to_csv($raw_name.'.csv');
 		
 		shell_exec('java weka.core.converters.CSVLoader -N 2-last '.$raw_name.'.csv > '.$raw_name.'.arff');
-		shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+		// shell_exec('java weka.classifiers.functions.Logistic -d trainedmodel.model -t '.$raw_name.'.arff');
+				shell_exec('java weka.classifiers.meta.FilteredClassifier -t '.$raw_name.'.arff -d trainedmodel.model -F "weka.filters.unsupervised.attribute.Remove -R 1" -W weka.classifiers.functions.Logistic');
 		
 		$f = fopen($raw_name.'.arff', 'r');
 		$lineNo = 0;
@@ -205,7 +207,9 @@ class Data extends CI_Controller {
 				fwrite($fw, $text);
 				fclose($fw);
 				
-				shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
+				// shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
+				shell_exec('java weka.classifiers.meta.FilteredClassifier -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l trainedmodel.model -T '.$raw_name.'.arff');
+				$more_info = shell_exec('java weka.classifiers.meta.FilteredClassifier -no-predictions -l trainedmodel.model -T '.$raw_name.'.arff');
 				
 				
 				// Memasukkan hasil prediksi ke DB
@@ -224,7 +228,7 @@ class Data extends CI_Controller {
 						'<p><a href="'.site_url('data/test_from_db').'">Tes Data Uji dari DB</a></p>';
 			
 			$this->load->view('header');
-			$this->load->view('hasiltesdata', array('table' => $table));
+			$this->load->view('hasiltesdata', array('table' => $table, 'more_info' => $more_info));
 			$this->load->view('footer');
 		}
 	}
@@ -275,7 +279,10 @@ class Data extends CI_Controller {
 		fwrite($fw, $text);
 		fclose($fw);
 		
-		shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
+		// shell_exec('java weka.classifiers.functions.Logistic -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv -suppress" -l trainedmodel.model -T '.$raw_name.'.arff');
+		shell_exec('java weka.classifiers.meta.FilteredClassifier -classifications "weka.classifiers.evaluation.output.prediction.CSV -p first -file testresult.csv" -l trainedmodel.model -T '.$raw_name.'.arff');
+		$more_info = shell_exec('java weka.classifiers.meta.FilteredClassifier -no-predictions -l trainedmodel.model -T '.$raw_name.'.arff');
+		
 		
 		
 		// Memasukkan hasil prediksi ke DB
@@ -291,7 +298,7 @@ class Data extends CI_Controller {
 		
 		
 		$this->load->view('header');
-		$this->load->view('hasiltesdata', array('table' => $table));
+		$this->load->view('hasiltesdata', array('table' => $table, 'more_info' => $more_info));
 		$this->load->view('footer');
 	}
 	

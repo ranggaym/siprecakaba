@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class IsiDataset extends CI_Controller {
+class IsiDatalatih extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
